@@ -1,145 +1,269 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arnav Tyagi | Premium Digital Agency</title>
+    <title>Arnav Tyagi | Senior Digital Architect & Creator</title>
+    
+    <!-- Scripts & Frameworks -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com" defer></script>
+    <link href="https://unpkg.com" rel="stylesheet">
     <script src="https://kit.fontawesome.com" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com" rel="stylesheet">
+
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #000; color: #fff; scroll-behavior: smooth; overflow-x: hidden; }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .glass:hover { background: rgba(255, 255, 255, 0.07); border-color: rgba(255, 255, 255, 0.2); transform: translateY(-10px); }
-        .gradient-text { background: linear-gradient(90deg, #fff, #71717a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        .bento-item { position: relative; overflow: hidden; border-radius: 2rem; }
+        [x-cloak] { display: none !important; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #030303; color: #fff; overflow-x: hidden; }
+        
+        /* Premium Background */
+        .bg-gradient-blur {
+            background: radial-gradient(circle at 50% -20%, #1a1a2e 0%, #030303 80%);
+        }
+        
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-10px) scale(1.01);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Animated Text */
+        .text-glow { text-shadow: 0 0 30px rgba(255, 255, 255, 0.3); }
+        .gradient-text { background: linear-gradient(90deg, #fff, #71717a, #3f3f46); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* Custom Button */
+        .btn-elite {
+            background: white;
+            color: black;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        .btn-elite:hover {
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.6);
+            transform: translateY(-3px);
+        }
     </style>
 </head>
-<body>
+<body class="bg-gradient-blur" x-data="{ mobileMenu: false }">
 
-    <!-- STICKY NAV -->
-    <nav class="fixed top-0 w-full z-[100] p-6 flex justify-between items-center glass border-none rounded-none backdrop-blur-md">
-        <div class="text-xl font-extrabold tracking-tighter">AT.STUDIO</div>
-        <div class="hidden md:flex gap-8 text-sm font-semibold text-gray-400">
-            <a href="#expertise" class="hover:text-white transition">Expertise</a>
-            <a href="#work" class="hover:text-white transition">Work</a>
-            <a href="#reviews" class="hover:text-white transition">Reviews</a>
-            <a href="#contact" class="hover:text-white transition">Contact</a>
+    <!-- 1. NAVIGATION -->
+    <header class="fixed top-0 w-full z-[100] p-6">
+        <nav class="max-w-7xl mx-auto glass-card border-none rounded-full px-8 py-4 flex justify-between items-center backdrop-blur-xl">
+            <div class="text-2xl font-black tracking-tighter italic">AT.STUDIO</div>
+            
+            <div class="hidden lg:flex gap-10 text-sm font-bold uppercase tracking-widest text-gray-400">
+                <a href="#services" class="hover:text-white transition">Services</a>
+                <a href="#work" class="hover:text-white transition">Portfolio</a>
+                <a href="#about" class="hover:text-white transition">Methodology</a>
+                <a href="#reviews" class="hover:text-white transition">Reviews</a>
+            </div>
+
+            <div class="flex items-center gap-6">
+                <a href="mailto:spiderstark12@gmail.com" class="btn-elite px-6 py-2 rounded-full font-bold text-xs">CONTACT</a>
+                <button @click="mobileMenu = !mobileMenu" class="lg:hidden text-2xl"><i class="fa-solid fa-bars-staggered"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div x-show="mobileMenu" x-cloak class="fixed inset-0 z-[200] bg-black/95 flex flex-col items-center justify-center gap-8 text-4xl font-black">
+        <button @click="mobileMenu = false" class="absolute top-10 right-10 text-3xl">&times;</button>
+        <a href="#services" @click="mobileMenu = false">SERVICES</a>
+        <a href="#work" @click="mobileMenu = false">WORK</a>
+        <a href="#reviews" @click="mobileMenu = false">REVIEWS</a>
+        <a href="#contact" @click="mobileMenu = false">HIRE</a>
+    </div>
+
+    <!-- 2. HERO SECTION -->
+    <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative overflow-hidden">
+        <div class="absolute top-0 w-full h-full pointer-events-none opacity-20">
+            <div class="absolute top-[20%] left-[10%] w-96 h-96 bg-blue-500 rounded-full blur-[150px]"></div>
+            <div class="absolute bottom-[20%] right-[10%] w-96 h-96 bg-purple-500 rounded-full blur-[150px]"></div>
         </div>
-        <a href="#contact" class="bg-white text-black px-6 py-2 rounded-full font-bold text-sm hover:scale-105 transition">Start Project</a>
-    </nav>
-
-    <!-- HERO SECTION -->
-    <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative">
-        <div class="absolute top-20 left-1/2 -translate-x-1/2 w-96 h-96 bg-blue-500/10 blur-[120px] rounded-full"></div>
-        <h1 class="text-6xl md:text-9xl font-extrabold tracking-tighter mb-6 gradient-text reveal">ENGINEERING<br>RESULTS.</h1>
-        <p class="text-gray-400 max-w-2xl text-lg md:text-xl mb-12 reveal">High-ticket Web Dev, Python Automation, and Content Strategy for businesses that demand the elite tier.</p>
-        <div class="flex gap-6 reveal">
-            <a href="#work" class="bg-white text-black px-10 py-4 rounded-full font-bold text-lg hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] transition">View Portfolio</a>
-            <a href="#contact" class="glass px-10 py-4 rounded-full font-bold text-lg">Contact Us</a>
-        </div>
-    </section>
-
-    <!-- EXPERTISE (The "Why") -->
-    <section id="expertise" class="py-32 px-6 max-w-7xl mx-auto">
-        <h2 class="text-4xl font-bold mb-16 tracking-tighter">WHY CHOOSE ME?</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="glass p-10 reveal">
-                <i class="fa-solid fa-bolt-lightning text-3xl mb-6 text-blue-400"></i>
-                <h3 class="text-2xl font-bold mb-4">Extreme Performance</h3>
-                <p class="text-gray-400">My websites score 95+ on Google PageSpeed. Faster sites = more customers.</p>
-            </div>
-            <div class="glass p-10 reveal">
-                <i class="fa-solid fa-robot text-3xl mb-6 text-purple-400"></i>
-                <h3 class="text-2xl font-bold mb-4">Automation First</h3>
-                <p class="text-gray-400">Using Python to build scrapers that find you 1,000+ leads while you sleep.</p>
-            </div>
-            <div class="glass p-10 reveal">
-                <i class="fa-solid fa-chart-line text-3xl mb-6 text-green-400"></i>
-                <h3 class="text-2xl font-bold mb-4">ROI Focused</h3>
-                <p class="text-gray-400">Everything I build is designed to make you more money, not just look "pretty."</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- PORTFOLIO BENTO GRID -->
-    <section id="work" class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[300px]">
-            <div class="md:col-span-2 md:row-span-2 glass p-10 flex flex-col justify-end bg-[url('https://images.unsplash.com')] bg-cover reveal">
-                <div class="absolute inset-0 bg-black/60"></div>
-                <div class="relative z-10">
-                    <span class="bg-white/10 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Web Development</span>
-                    <h3 class="text-3xl font-bold mt-4">Full-Stack Real Estate Portal</h3>
-                </div>
-            </div>
-            <div class="glass p-8 flex flex-col justify-between reveal">
-                <i class="fa-brands fa-python text-4xl text-blue-400"></i>
-                <h3 class="text-xl font-bold">Python B2B Lead Scraper</h3>
-            </div>
-            <div class="glass p-8 flex flex-col justify-between reveal">
-                <i class="fa-solid fa-video text-4xl text-red-400"></i>
-                <h3 class="text-xl font-bold">4K Viral Retention Editing</h3>
-            </div>
-            <div class="md:col-span-2 glass p-10 flex items-center justify-between reveal">
-                <div>
-                    <h3 class="text-2xl font-bold">High-CTR Thumbnails</h3>
-                    <p class="text-gray-400">Designed to stop the scroll.</p>
-                </div>
-                <i class="fa-solid fa-clapperboard text-5xl opacity-10"></i>
-            </div>
-        </div>
-    </section>
-
-    <!-- REVIEWS -->
-    <section id="reviews" class="py-32 bg-white text-black">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-4xl font-black mb-16 tracking-tighter">CLIENT VERDICTS</h2>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="border-l-4 border-black pl-8 reveal">
-                    <p class="text-2xl italic font-medium mb-6">"Arnav's automation scripts saved us 40+ hours of manual work every month. The ROI was instant."</p>
-                    <span class="font-bold text-sm uppercase tracking-widest">— James C., Director at Helix Agency</span>
-                </div>
-                <div class="border-l-4 border-black pl-8 reveal">
-                    <p class="text-2xl italic font-medium mb-6">"He understands visual retention better than most editors. Our YouTube CTR shot up by 12%."</p>
-                    <span class="font-bold text-sm uppercase tracking-widest">— Sarah L., Founder of Bloom Media</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT FUNCTIONALITY -->
-    <section id="contact" class="py-32 px-6 max-w-4xl mx-auto text-center">
-        <h2 class="text-5xl font-bold mb-6 tracking-tighter">READY TO SCALE?</h2>
-        <p class="text-gray-400 mb-12">Send a message and get a response within 24 hours.</p>
         
-        <!-- Formspree Integration (Action URL placeholder) -->
-        <form action="https://formspree.io" method="POST" class="grid gap-6 text-left reveal">
-            <div class="grid md:grid-cols-2 gap-6">
-                <input type="text" name="name" placeholder="Full Name" required class="glass p-5 rounded-2xl outline-none focus:border-white/40">
-                <input type="email" name="email" placeholder="Business Email" required class="glass p-5 rounded-2xl outline-none focus:border-white/40">
+        <div data-aos="fade-up" data-aos-duration="1000">
+            <span class="px-4 py-2 glass-card rounded-full text-[10px] font-bold tracking-[0.3em] uppercase mb-8 inline-block border-white/20">Independent Creative Partner</span>
+            <h1 class="text-6xl md:text-9xl font-black leading-[0.85] tracking-tighter mb-8 gradient-text">
+                VISIONARY <br> EXECUTION.
+            </h1>
+            <p class="text-gray-400 max-w-2xl text-lg md:text-2xl mb-12 font-medium">
+                High-ticket Web Dev, Python Systems, & Creative Content for brands that refuse to be average.
+            </p>
+            <div class="flex flex-col md:flex-row gap-6 justify-center">
+                <a href="#work" class="btn-elite px-12 py-5 rounded-full font-extrabold text-lg">THE WORK</a>
+                <a href="mailto:spiderstark12@gmail.com" class="glass-card px-12 py-5 rounded-full font-extrabold text-lg">DIRECT EMAIL</a>
             </div>
-            <textarea name="message" rows="5" placeholder="Project Details" required class="glass p-5 rounded-2xl outline-none focus:border-white/40"></textarea>
-            <button type="submit" class="bg-white text-black py-5 rounded-2xl font-bold text-xl hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] transition">Send Proposal</button>
+        </div>
+    </section>
+
+    <!-- 3. SERVICES (MULTI-SKILL) -->
+    <section id="services" class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="mb-20" data-aos="fade-right">
+            <h2 class="text-5xl font-black tracking-tighter mb-4">CORE EXPERTISE</h2>
+            <p class="text-gray-500 text-xl">A complete stack designed for full business scale.</p>
+        </div>
+
+        <div class="grid md:grid-cols-4 gap-6">
+            <!-- Web Dev -->
+            <div class="glass-card p-10 md:col-span-2 group" data-aos="zoom-in">
+                <i class="fa-solid fa-code text-4xl mb-8 text-blue-400 group-hover:scale-110 transition-transform"></i>
+                <h3 class="text-3xl font-bold mb-4">Web Development</h3>
+                <p class="text-gray-500 leading-relaxed">Full-stack builds utilizing React, Tailwind, and high-speed server logic. We don't build sites; we build conversion engines.</p>
+            </div>
+            <!-- Python -->
+            <div class="glass-card p-10" data-aos="zoom-in" data-aos-delay="100">
+                <i class="fa-brands fa-python text-4xl mb-8 text-yellow-400"></i>
+                <h3 class="text-2xl font-bold mb-4">Python Automation</h3>
+                <p class="text-gray-500 leading-relaxed text-sm">Lead scrapers, data miners, and B2B automation tools designed to 10x output.</p>
+            </div>
+            <!-- Video -->
+            <div class="glass-card p-10" data-aos="zoom-in" data-aos-delay="200">
+                <i class="fa-solid fa-film text-4xl mb-8 text-red-500"></i>
+                <h3 class="text-2xl font-bold mb-4">Video Editing</h3>
+                <p class="text-gray-500 leading-relaxed text-sm">High-retention 4K edits for Reels, Shorts, and YouTube. Visual storytelling at speed.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. BENTO PORTFOLIO -->
+    <section id="work" class="py-32 px-6 max-w-7xl mx-auto bg-black/40 rounded-[50px]">
+        <div class="text-center mb-20" data-aos="fade-up">
+            <h2 class="text-6xl font-black tracking-tighter">PORTFOLIO BENTO</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[300px]">
+            <!-- Project 1 -->
+            <div class="md:col-span-2 md:row-span-2 glass-card p-10 flex flex-col justify-end bg-[url('https://images.unsplash.com')] bg-cover relative overflow-hidden group" data-aos="fade-up">
+                <div class="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors"></div>
+                <div class="relative z-10">
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-blue-400 mb-2 block">Premium Web Dev</span>
+                    <h4 class="text-4xl font-black mb-4">Apex Alpha Fitness</h4>
+                    <a href="#" class="text-sm font-bold border-b border-white hover:text-blue-400 hover:border-blue-400 transition">VIEW LIVE PROJECT</a>
+                </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="glass-card p-8 flex flex-col justify-between hover:bg-yellow-400/10" data-aos="fade-up" data-aos-delay="100">
+                <i class="fa-brands fa-python text-5xl opacity-10"></i>
+                <div>
+                    <h5 class="font-bold text-xl mb-2 italic">LeadScraper v2.1</h5>
+                    <p class="text-xs text-gray-500">Automated 1,000+ lead data extraction across Google Maps.</p>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="glass-card p-8 flex flex-col justify-between hover:bg-red-500/10" data-aos="fade-up" data-aos-delay="200">
+                <i class="fa-solid fa-play text-5xl opacity-10"></i>
+                <h5 class="font-bold text-xl mb-2 italic text-glow">Viral Retention Pack</h5>
+            </div>
+
+            <!-- Project 4 (Thumbnail) -->
+            <div class="md:col-span-2 glass-card p-10 flex items-center justify-between group overflow-hidden" data-aos="fade-up">
+                <div class="max-w-xs">
+                    <h5 class="text-2xl font-black mb-2">High-CTR Graphics</h5>
+                    <p class="text-gray-500 text-sm italic">Designed for top-tier creators with 10M+ views.</p>
+                </div>
+                <div class="w-32 h-20 bg-zinc-800 rounded-xl group-hover:scale-110 transition-transform"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. REVIEWS & TRUST -->
+    <section id="reviews" class="py-32 bg-white text-black rounded-[50px] relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+                <h2 class="text-6xl md:text-8xl font-black tracking-tighter" data-aos="fade-right">TRUSTED <br> BY ELITE.</h2>
+                <div class="text-right" data-aos="fade-left">
+                    <p class="text-5xl font-black italic">100%</p>
+                    <p class="font-bold text-xs uppercase opacity-40">Client Satisfaction</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-16 border-t-2 border-black pt-16">
+                <div data-aos="fade-up">
+                    <p class="text-2xl font-bold leading-relaxed mb-8">"Arnav delivered a system that automated our entire sales pipeline. His code is clean, and his vision is professional."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-black rounded-full"></div>
+                        <div>
+                            <p class="font-bold">Mark R.</p>
+                            <p class="text-xs opacity-50 uppercase">CEO, FitPulse Gyms</p>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <p class="text-2xl font-bold leading-relaxed mb-8">"The retention editing style Arnav developed boosted our Reels viewership by 200% in a single month."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-black rounded-full"></div>
+                        <div>
+                            <p class="font-bold">Sarah J.</p>
+                            <p class="text-xs opacity-50 uppercase">Founder, Bloom Media</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. CONTACT (FUNCTIONAL) -->
+    <section id="contact" class="py-32 px-6 max-w-4xl mx-auto">
+        <div class="text-center mb-16" data-aos="zoom-in">
+            <h2 class="text-5xl font-black tracking-tighter mb-4">LET'S BUILD.</h2>
+            <p class="text-gray-500">Currently accepting high-ticket projects for 2026.</p>
+        </div>
+
+        <form action="https://formspree.io" method="POST" class="space-y-6" data-aos="fade-up">
+            <div class="grid md:grid-cols-2 gap-6">
+                <input type="text" name="name" placeholder="FULL NAME" required class="w-full glass-card p-5 rounded-3xl outline-none focus:border-white/50 transition">
+                <input type="email" name="email" placeholder="BUSINESS EMAIL" required class="w-full glass-card p-5 rounded-3xl outline-none focus:border-white/50 transition">
+            </div>
+            <select name="service" class="w-full glass-card p-5 rounded-3xl outline-none focus:border-white/50 transition appearance-none text-gray-500">
+                <option value="web-dev">Full-Stack Web Development</option>
+                <option value="python">Python Automation</option>
+                <option value="creative">Content & Video Strategy</option>
+            </select>
+            <textarea name="message" rows="5" placeholder="PROJECT DETAILS & BUDGET" required class="w-full glass-card p-5 rounded-3xl outline-none focus:border-white/50 transition"></textarea>
+            <button type="submit" class="w-full btn-elite py-6 rounded-full font-black text-xl shadow-2xl">LAUNCH PROJECT &xrarr;</button>
         </form>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="py-10 text-center border-t border-white/5">
-        <p class="text-gray-500 font-bold mb-4 tracking-widest">SPIDERSTARK12@GMAIL.COM</p>
-        <div class="text-[10px] text-gray-700 tracking-[1em] uppercase">© 2026 ARNAV TYAGI DIGITAL. ALL RIGHTS RESERVED.</div>
+    <!-- 7. FOOTER -->
+    <footer class="py-20 px-8 border-t border-white/5 relative bg-black">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="text-center md:text-left">
+                <h4 class="text-4xl font-black tracking-tighter mb-4 italic">AT.DIGITAL</h4>
+                <p class="text-gray-600 max-w-xs text-sm">Building digital infrastructure for businesses who demand results.</p>
+            </div>
+            <div class="flex flex-col gap-4 text-center md:text-right">
+                <a href="mailto:spiderstark12@gmail.com" class="text-2xl font-black gradient-text">spiderstark12@gmail.com</a>
+                <div class="flex justify-center md:justify-end gap-6 text-gray-600">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-20 text-[8px] tracking-[1em] text-gray-800 uppercase font-black">© 2026 ARNAV TYAGI. SECURE ACCESS ONLY.</div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://unpkg.com"></script>
     <script>
-        // Scroll Reveal Logic
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('active');
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        AOS.init({ once: true });
+        
+        // Custom Navbar Scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) header.classList.add('py-2');
+            else header.classList.remove('py-2');
+        });
     </script>
 </body>
 </html>
