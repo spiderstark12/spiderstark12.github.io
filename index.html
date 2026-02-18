@@ -1,268 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Apex Alpha | Elite Performance Coaching</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apex Alpha | Elite Performance Coaching</title>
 
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://kit.fontawesome.com" crossorigin="anonymous"></script>
-<link href="https://fonts.googleapis.com" rel="stylesheet">
+    <!-- Tailwind & Icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
 
-<style>
-body {
-  font-family: 'Inter', sans-serif;
-  background: #000;
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-}
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #000;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
 
-.bg-mesh {
-  position: fixed;
-  width: 200%;
-  height: 200%;
-  top: -50%;
-  left: -50%;
-  background: radial-gradient(circle at 30% 30%, #111 0%, transparent 40%),
-              radial-gradient(circle at 70% 70%, #222 0%, transparent 40%);
-  animation: moveBg 20s linear infinite alternate;
-  z-index: -1;
-}
-@keyframes moveBg {
-  from { transform: translate(0,0); }
-  to { transform: translate(100px,100px); }
-}
+        /* Animated Mesh Background */
+        .bg-mesh {
+            position: fixed;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: radial-gradient(circle at 30% 30%, #111 0%, transparent 40%),
+                        radial-gradient(circle at 70% 70%, #222 0%, transparent 40%);
+            animation: moveBg 20s linear infinite alternate;
+            z-index: -1;
+        }
+        @keyframes moveBg {
+            from { transform: translate(0,0); }
+            to { transform: translate(100px,100px); }
+        }
 
-.glass {
-  backdrop-filter: blur(20px);
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-}
+        .glass {
+            backdrop-filter: blur(20px);
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
 
-.hover-lift {
-  transition: all 0.35s ease;
-}
-.hover-lift:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-}
+        .hover-lift {
+            transition: all 0.35s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+        }
 
-.glow-btn {
-  box-shadow: 0 0 20px rgba(255,255,255,0.3);
-  transition: all 0.3s ease;
-}
-.glow-btn:hover {
-  box-shadow: 0 0 50px rgba(255,255,255,0.7);
-  transform: translateY(-3px);
-}
+        .glow-btn {
+            box-shadow: 0 0 20px rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+        }
+        .glow-btn:hover {
+            box-shadow: 0 0 50px rgba(255,255,255,0.7);
+            transform: translateY(-3px);
+        }
 
-.gradient-text {
-  background: linear-gradient(90deg,#fff,#888);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+        .gradient-text {
+            background: linear-gradient(90deg,#fff,#888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-.accordion-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
-}
-</style>
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+    </style>
 </head>
 
 <body class="text-white">
 
 <div class="bg-mesh"></div>
 
-<!-- NAV -->
+<!-- NAVIGATION -->
 <header id="navbar" class="fixed w-full z-50 transition-all duration-300">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <h1 class="text-xl font-bold tracking-wider">Apex Alpha</h1>
-    <a href="mailto:spiderstark12@://gmail.com: Strategy Call" class="bg-white text-black px-6 py-2 rounded-full font-semibold glow-btn">
-      Book Strategy Call
-    </a>
-  </div>
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <h1 class="text-xl font-bold tracking-wider">Apex Alpha</h1>
+        <a href="mailto:spiderstark12@://gmail.com: Strategy Call" class="bg-white text-black px-6 py-2 rounded-full font-semibold glow-btn text-sm">
+            Book Strategy Call
+        </a>
+    </div>
 </header>
 
-<!-- HERO -->
-<section class="min-h-screen flex items-center justify-center text-center px-6">
-  <div class="max-w-5xl">
-    <h2 class="text-4xl md:text-7xl font-black leading-tight mb-6">
-      Build an <span class="gradient-text">Unbreakable</span> Body.
-      <br> Operate at Apex Level.
-    </h2>
-    <p class="text-gray-400 text-lg md:text-xl mb-10">
-      Elite transformation systems for men who refuse average.
-    </p>
-    <div class="flex flex-col md:flex-row gap-6 justify-center">
-      <a href="mailto:spiderstark12@://gmail.com Alpha Application" class="bg-white text-black px-8 py-4 rounded-full font-semibold glow-btn text-center inline-block">
-        Apply Now
-      </a>
-      <a href="#features" class="border border-white px-8 py-4 rounded-full hover:bg-white hover:text-black transition">
-        Explore Program
-      </a>
+<!-- HERO SECTION -->
+<section class="min-h-screen flex items-center justify-center text-center px-6 pt-20">
+    <div class="max-w-5xl">
+        <h2 class="text-5xl md:text-8xl font-black leading-tight mb-6">
+            Build an <span class="gradient-text">Unbreakable</span> Body.
+            <br> Operate at Apex Level.
+        </h2>
+        <p class="text-gray-400 text-lg md:text-2xl mb-10">
+            Elite transformation systems for individuals who refuse average.
+        </p>
+        <div class="flex flex-col md:flex-row gap-6 justify-center">
+            <a href="mailto:spiderstark12@://gmail.com Alpha Application" class="bg-white text-black px-10 py-5 rounded-full font-bold glow-btn text-lg inline-block">
+                Apply Now
+            </a>
+            <a href="#features" class="border border-white/20 glass px-10 py-5 rounded-full hover:bg-white hover:text-black transition text-lg">
+                Explore Program
+            </a>
+        </div>
     </div>
-  </div>
 </section>
 
-<!-- STATS -->
-<section class="py-20 text-center">
-  <div class="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
-    <div>
-      <h3 class="text-5xl font-bold counter" data-target="250">0</h3>
-      <p class="text-gray-400 mt-2">Clients Transformed</p>
+<!-- PERFORMANCE STATS -->
+<section class="py-20 text-center border-y border-white/5 bg-black/40">
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+        <div>
+            <h3 class="text-5xl font-bold counter" data-target="250">0</h3>
+            <p class="text-gray-500 mt-2">Elite Clients</p>
+        </div>
+        <div>
+            <h3 class="text-5xl font-bold counter" data-target="96">0</h3>
+            <p class="text-gray-500 mt-2">Success Rate (%)</p>
+        </div>
+        <div class="col-span-2 md:col-span-1">
+            <h3 class="text-5xl font-bold counter" data-target="5">0</h3>
+            <p class="text-gray-500 mt-2">Years of Coaching</p>
+        </div>
     </div>
-    <div>
-      <h3 class="text-5xl font-bold counter" data-target="96">0</h3>
-      <p class="text-gray-400 mt-2">Success Rate (%)</p>
-    </div>
-    <div>
-      <h3 class="text-5xl font-bold counter" data-target="5">0</h3>
-      <p class="text-gray-400 mt-2">Years Coaching</p>
-    </div>
-  </div>
 </section>
 
-<!-- FEATURES BENTO -->
-<section id="features" class="py-24 px-6">
-  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[220px]">
-    <div class="glass p-8 rounded-2xl md:col-span-2 hover-lift">
-      <h4 class="text-xl font-semibold mb-2">Custom Performance Systems</h4>
-      <p class="text-gray-400">Fully tailored training & recovery structure.</p>
+<!-- FEATURES BENTO GRID -->
+<section id="features" class="py-32 px-6">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]">
+        <div class="glass p-10 rounded-3xl md:col-span-2 hover-lift flex flex-col justify-end">
+            <h4 class="text-2xl font-semibold mb-2 text-white">Custom Performance Systems</h4>
+            <p class="text-gray-400">Every plan is engineered specifically for your biology and lifestyle.</p>
+        </div>
+        <div class="glass p-10 rounded-3xl hover-lift flex flex-col justify-end">
+            <h4 class="text-xl font-semibold mb-2 text-white">Precision Nutrition</h4>
+            <p class="text-gray-400">Macros optimized for cognition and power.</p>
+        </div>
+        <div class="glass p-10 rounded-3xl hover-lift flex flex-col justify-end">
+            <h4 class="text-xl font-semibold mb-2 text-white">Mindset Engineering</h4>
+            <p class="text-gray-400">Fortify your discipline with elite frameworks.</p>
+        </div>
+        <div class="glass p-10 rounded-3xl md:col-span-2 hover-lift flex flex-col justify-end">
+            <h4 class="text-2xl font-semibold mb-2 text-white">Advanced Analytics</h4>
+            <p class="text-gray-400">Track every lift and physique metric via our cloud dashboard.</p>
+        </div>
     </div>
-    <div class="glass p-8 rounded-2xl hover-lift">
-      <h4 class="text-xl font-semibold mb-2">Precision Nutrition</h4>
-      <p class="text-gray-400">Macros optimized for peak performance.</p>
-    </div>
-    <div class="glass p-8 rounded-2xl hover-lift">
-      <h4 class="text-xl font-semibold mb-2">Mindset Engineering</h4>
-      <p class="text-gray-400">Elite discipline & execution frameworks.</p>
-    </div>
-    <div class="glass p-8 rounded-2xl md:col-span-2 hover-lift">
-      <h4 class="text-xl font-semibold mb-2">Weekly Analytics Dashboard</h4>
-      <p class="text-gray-400">Track physique, lifts & progress metrics.</p>
-    </div>
-  </div>
 </section>
 
-<!-- PRICING -->
-<section id="pricing" class="py-24 px-6 text-center">
-  <h3 class="text-3xl md:text-5xl font-bold mb-10">Investment</h3>
-
-  <div class="flex justify-center mb-10">
-    <button id="monthlyBtn" class="px-6 py-2 bg-white text-black rounded-l-full font-semibold">Monthly</button>
-    <button id="quarterlyBtn" class="px-6 py-2 border border-white rounded-r-full font-semibold">Quarterly</button>
-  </div>
-
-  <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-10">
-    <div class="glass p-10 rounded-3xl hover-lift">
-      <h4 class="text-2xl font-semibold mb-4">Alpha</h4>
-      <p id="price1" class="text-4xl font-bold mb-6">₹5,000/mo</p>
-      <a href="mailto:spiderstark12@://gmail.com Plan Subscription" class="bg-white text-black px-6 py-3 rounded-full font-semibold glow-btn inline-block">
-        Subscribe
-      </a>
+<!-- PRICING SECTION -->
+<section id="pricing" class="py-32 px-6 text-center">
+    <h3 class="text-4xl md:text-6xl font-bold mb-10 tracking-tighter">Investment</h3>
+    
+    <div class="flex justify-center mb-16">
+        <div class="glass p-1 rounded-full flex gap-1">
+            <button id="monthlyBtn" class="px-8 py-3 bg-white text-black rounded-full font-bold transition">Monthly</button>
+            <button id="quarterlyBtn" class="px-8 py-3 text-white rounded-full font-bold transition hover:bg-white/5">Quarterly</button>
+        </div>
     </div>
 
-    <div class="bg-white text-black p-10 rounded-3xl hover-lift scale-105">
-      <h4 class="text-2xl font-semibold mb-4">Apex Elite</h4>
-      <p id="price2" class="text-4xl font-bold mb-6">₹15,000/mo</p>
-      <a href="mailto:spiderstark12@://gmail.com Elite Subscription" class="bg-black text-white px-6 py-3 rounded-full font-semibold glow-btn inline-block">
-        Go Elite
-      </a>
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
+        <div class="glass p-12 rounded-[40px] hover-lift">
+            <h4 class="text-xl text-gray-500 mb-4 uppercase tracking-widest">Alpha</h4>
+            <p id="price1" class="text-5xl font-bold mb-8">₹5,000/mo</p>
+            <ul class="text-gray-400 text-left space-y-4 mb-10">
+                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-white"></i> Custom Workout Plan</li>
+                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-white"></i> Nutrition Protocol</li>
+                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-white text-opacity-20"></i> Weekly Video Feedback</li>
+            </ul>
+            <a href="mailto:spiderstark12@://gmail.com Plan Inquiry" class="w-full bg-white text-black py-4 rounded-full font-bold glow-btn inline-block">Join Now</a>
+        </div>
+
+        <div class="bg-white text-black p-12 rounded-[40px] hover-lift scale-105">
+            <h4 class="text-xl text-gray-500 mb-4 uppercase tracking-widest">Apex Elite</h4>
+            <p id="price2" class="text-5xl font-bold mb-8">₹15,000/mo</p>
+            <ul class="text-gray-800 text-left space-y-4 mb-10 font-medium">
+                <li class="flex items-center gap-3"><i class="fa-solid fa-bolt"></i> 1-on-1 Daily Accountability</li>
+                <li class="flex items-center gap-3"><i class="fa-solid fa-bolt"></i> Weekly Deep-Dive Bio-Feedback</li>
+                <li class="flex items-center gap-3"><i class="fa-solid fa-bolt"></i> 24/7 Priority Support</li>
+            </ul>
+            <a href="mailto:spiderstark12@://gmail.com Elite Inquiry" class="w-full bg-black text-white py-4 rounded-full font-bold glow-btn inline-block">Go Elite</a>
+        </div>
     </div>
-  </div>
 </section>
 
-<!-- FAQ -->
-<section class="py-24 px-6 max-w-3xl mx-auto">
-  <h3 class="text-3xl md:text-5xl font-bold text-center mb-16">FAQs</h3>
-  <div class="space-y-6">
-    <div class="glass p-6 rounded-xl">
-      <button class="w-full text-left font-semibold flex justify-between" onclick="toggleAccordion(this)">
-        How fast will I see results? <span>+</span>
-      </button>
-      <div class="accordion-content mt-2 text-gray-400">
-        Most clients see noticeable physique and energy changes within 4–6 weeks.
+<!-- PROFESSIONAL FOOTER -->
+<footer class="py-20 px-6 border-t border-gray-900 bg-black/50 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 text-left">
+      <div class="space-y-6">
+        <h4 class="text-2xl font-bold tracking-tighter">Apex Alpha</h4>
+        <p class="text-gray-500 leading-relaxed">
+          High-performance systems for individuals who demand elite results. 
+          Engineered for precision and unbreakable execution.
+        </p>
+        <div class="flex gap-4 text-gray-400">
+          <a href="#" class="hover:text-white transition"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="hover:text-white transition"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+  
+      <div>
+        <h5 class="font-semibold mb-6 text-white uppercase tracking-widest text-xs">Navigation</h5>
+        <ul class="space-y-4 text-gray-500">
+          <li><a href="#" class="hover:text-white transition">Home</a></li>
+          <li><a href="#features" class="hover:text-white transition">Performance</a></li>
+          <li><a href="#pricing" class="hover:text-white transition">Programs</a></li>
+        </ul>
+      </div>
+  
+      <div>
+        <h5 class="font-semibold mb-6 text-white uppercase tracking-widest text-xs">Direct Support</h5>
+        <ul class="space-y-4 text-gray-500">
+          <li class="flex items-center gap-3">
+            <i class="fa-solid fa-envelope text-white/50"></i>
+            <a href="mailto:spiderstark12@gmail.com" class="hover:text-white transition text-sm">spiderstark12@gmail.com</a>
+          </li>
+          <li class="flex items-center gap-3">
+            <i class="fa-solid fa-location-dot text-white/50"></i>
+            <span class="text-sm">New Delhi, India</span>
+          </li>
+        </ul>
+      </div>
+  
+      <div>
+        <h5 class="font-semibold mb-6 text-white uppercase tracking-widest text-xs">Business Inquiry</h5>
+        <ul class="space-y-4 text-gray-500">
+          <li class="flex items-center gap-3">
+            <i class="fa-solid fa-paper-plane text-white/50"></i>
+            <a href="mailto:support@apex-elite.ai" class="hover:text-white transition text-sm">support@apex-elite.ai</a>
+          </li>
+          <li class="text-xs text-gray-600 italic">
+            *Inquiries monitored 24/7.
+          </li>
+        </ul>
       </div>
     </div>
-    <div class="glass p-6 rounded-xl">
-      <button class="w-full text-left font-semibold flex justify-between" onclick="toggleAccordion(this)">
-        Is it beginner friendly? <span>+</span>
-      </button>
-      <div class="accordion-content mt-2 text-gray-400">
-        Yes. All systems are custom-built to match your current fitness level and equipment.
+  
+    <div class="max-w-7xl mx-auto pt-8 border-t border-gray-900 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-600 text-xs">
+      <p>© 2026 Apex Alpha Performance. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-white">Privacy Policy</a>
+        <a href="#" class="hover:text-white">Terms of Execution</a>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="py-10 text-center border-t border-gray-800">
-  <h4 class="text-xl font-bold mb-4">Apex Alpha</h4>
-  <p class="text-gray-500 text-sm">© 2026 Apex Alpha. All rights reserved.</p>
 </footer>
 
-<!-- WhatsApp Floating Button -->
-<a href="https://wa.me" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full text-2xl shadow-lg hover:scale-110 transition z-50">
-  <i class="fa-brands fa-whatsapp"></i>
+<!-- WhatsApp Floating Icon -->
+<a href="https://wa.me" target="_blank" class="fixed bottom-8 right-8 bg-green-500 text-white p-4 rounded-full text-2xl shadow-[0_0_20px_rgba(34,197,94,0.4)] hover:scale-110 transition z-50">
+    <i class="fa-brands fa-whatsapp"></i>
 </a>
 
 <script>
-/* Counters */
-const counters = document.querySelectorAll('.counter');
-counters.forEach(counter => {
-  const update = () => {
-    const target = +counter.getAttribute('data-target');
-    const count = +counter.innerText;
-    const increment = target / 100;
-    if(count < target){
-      counter.innerText = Math.ceil(count + increment);
-      setTimeout(update, 20);
-    } else {
-      counter.innerText = target;
-    }
-  }
-  update();
-});
+    /* Stats Counter Animation */
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+        const update = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+            const increment = target / 80;
+            if(count < target){
+                counter.innerText = Math.ceil(count + increment);
+                setTimeout(update, 20);
+            } else { counter.innerText = target; }
+        }
+        update();
+    });
 
-/* Nav Scroll Effect */
-window.addEventListener("scroll", function(){
-  const nav = document.getElementById("navbar");
-  if(window.scrollY > 50) nav.classList.add("bg-black/80","backdrop-blur-lg");
-  else nav.classList.remove("bg-black/80","backdrop-blur-lg");
-});
+    /* Navbar Blur on Scroll */
+    window.addEventListener("scroll", function(){
+        const nav = document.getElementById("navbar");
+        if(window.scrollY > 50) {
+            nav.classList.add("bg-black/80","backdrop-blur-xl","border-b","border-white/5");
+        } else {
+            nav.classList.remove("bg-black/80","backdrop-blur-xl","border-b","border-white/5");
+        }
+    });
 
-/* Toggle Prices */
-const monthlyBtn = document.getElementById("monthlyBtn");
-const quarterlyBtn = document.getElementById("quarterlyBtn");
-const p1 = document.getElementById("price1");
-const p2 = document.getElementById("price2");
+    /* Pricing Toggle Logic */
+    const monthlyBtn = document.getElementById("monthlyBtn");
+    const quarterlyBtn = document.getElementById("quarterlyBtn");
+    const p1 = document.getElementById("price1");
+    const p2 = document.getElementById("price2");
 
-quarterlyBtn.onclick = () => {
-  p1.innerText = "₹13,500/qtr";
-  p2.innerText = "₹40,000/qtr";
-  quarterlyBtn.className = "px-6 py-2 bg-white text-black rounded-r-full font-semibold";
-  monthlyBtn.className = "px-6 py-2 border border-white rounded-l-full font-semibold text-white";
-};
-monthlyBtn.onclick = () => {
-  p1.innerText = "₹5,000/mo";
-  p2.innerText = "₹15,000/mo";
-  monthlyBtn.className = "px-6 py-2 bg-white text-black rounded-l-full font-semibold";
-  quarterlyBtn.className = "px-6 py-2 border border-white rounded-r-full font-semibold text-white";
-};
+    quarterlyBtn.onclick = () => {
+        p1.innerText = "₹12,500/qtr";
+        p2.innerText = "₹40,000/qtr";
+        quarterlyBtn.classList.add("bg-white", "text-black");
+        quarterlyBtn.classList.remove("text-white", "hover:bg-white/5");
+        monthlyBtn.classList.add("text-white", "hover:bg-white/5");
+        monthlyBtn.classList.remove("bg-white", "text-black");
+    };
 
-/* Accordion */
-function toggleAccordion(btn) {
-  const content = btn.nextElementSibling;
-  const span = btn.querySelector('span');
-  if (content.style.maxHeight) {
-    content.style.maxHeight = null;
-    span.innerText = "+";
-  } else {
-    content.style.maxHeight = content.scrollHeight + "px";
-    span.innerText = "-";
-  }
-}
+    monthlyBtn.onclick = () => {
+        p1.innerText = "₹5,000/mo";
+        p2.innerText = "₹15,000/mo";
+        monthlyBtn.classList.add("bg-white", "text-black");
+        monthlyBtn.classList.remove("text-white", "hover:bg-white/5");
+        quarterlyBtn.classList.add("text-white", "hover:bg-white/5");
+        quarterlyBtn.classList.remove("bg-white", "text-black");
+    };
 </script>
+
 </body>
 </html>
