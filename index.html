@@ -3,267 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arnav Tyagi | Senior Digital Architect & Creator</title>
+    <title>AT.DIGITAL | Senior Creative Technologist</title>
     
-    <!-- Scripts & Frameworks -->
+    <!-- External Scripts & Styles -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com" defer></script>
-    <link href="https://unpkg.com" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com" rel="stylesheet">
 
     <style>
-        [x-cloak] { display: none !important; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #030303; color: #fff; overflow-x: hidden; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #020202; color: #fff; overflow-x: hidden; }
         
-        /* Premium Background */
-        .bg-gradient-blur {
-            background: radial-gradient(circle at 50% -20%, #1a1a2e 0%, #030303 80%);
-        }
-        
-        /* Glassmorphism Cards */
+        /* Premium Glassmorphism */
         .glass-card {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.01);
+            backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
         }
         .glass-card:hover {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.04);
             border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-10px) scale(1.01);
-            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+            transform: translateY(-12px);
+            box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.5);
         }
 
-        /* Animated Text */
-        .text-glow { text-shadow: 0 0 30px rgba(255, 255, 255, 0.3); }
-        .gradient-text { background: linear-gradient(90deg, #fff, #71717a, #3f3f46); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        
-        /* Custom Button */
-        .btn-elite {
-            background: white;
-            color: black;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
+        .gradient-text {
+            background: linear-gradient(90deg, #fff, #a1a1aa, #52525b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .btn-elite:hover {
-            box-shadow: 0 0 50px rgba(255, 255, 255, 0.6);
-            transform: translateY(-3px);
+
+        .bento-img {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: grayscale(100%) brightness(0.3);
+            transition: 0.6s ease;
+        }
+        .glass-card:hover .bento-img {
+            filter: grayscale(0%) brightness(0.5);
+            transform: scale(1.05);
         }
     </style>
 </head>
-<body class="bg-gradient-blur" x-data="{ mobileMenu: false }">
+<body>
 
-    <!-- 1. NAVIGATION -->
-    <header class="fixed top-0 w-full z-[100] p-6">
-        <nav class="max-w-7xl mx-auto glass-card border-none rounded-full px-8 py-4 flex justify-between items-center backdrop-blur-xl">
-            <div class="text-2xl font-black tracking-tighter italic">AT.STUDIO</div>
-            
-            <div class="hidden lg:flex gap-10 text-sm font-bold uppercase tracking-widest text-gray-400">
-                <a href="#services" class="hover:text-white transition">Services</a>
-                <a href="#work" class="hover:text-white transition">Portfolio</a>
-                <a href="#about" class="hover:text-white transition">Methodology</a>
-                <a href="#reviews" class="hover:text-white transition">Reviews</a>
+    <!-- NAVIGATION -->
+    <header class="fixed top-0 w-full z-50 p-6">
+        <nav class="max-w-7xl mx-auto glass-card border-none rounded-full px-8 py-4 flex justify-between items-center">
+            <div class="text-2xl font-black italic tracking-tighter">AT.DIGITAL</div>
+            <div class="hidden lg:flex gap-10 text-[10px] font-bold uppercase tracking-widest text-gray-500">
+                <a href="#services" class="hover:text-white transition">Expertise</a>
+                <a href="#work" class="hover:text-white transition">The Work</a>
+                <a href="#contact" class="hover:text-white transition">Contact</a>
             </div>
-
-            <div class="flex items-center gap-6">
-                <a href="mailto:spiderstark12@gmail.com" class="btn-elite px-6 py-2 rounded-full font-bold text-xs">CONTACT</a>
-                <button @click="mobileMenu = !mobileMenu" class="lg:hidden text-2xl"><i class="fa-solid fa-bars-staggered"></i></button>
-            </div>
+            <a href="mailto:spiderstark12@gmail.com" class="bg-white text-black px-6 py-2 rounded-full font-bold text-[10px] tracking-widest hover:scale-105 transition uppercase">Contact Studio</a>
         </nav>
     </header>
 
-    <!-- MOBILE MENU -->
-    <div x-show="mobileMenu" x-cloak class="fixed inset-0 z-[200] bg-black/95 flex flex-col items-center justify-center gap-8 text-4xl font-black">
-        <button @click="mobileMenu = false" class="absolute top-10 right-10 text-3xl">&times;</button>
-        <a href="#services" @click="mobileMenu = false">SERVICES</a>
-        <a href="#work" @click="mobileMenu = false">WORK</a>
-        <a href="#reviews" @click="mobileMenu = false">REVIEWS</a>
-        <a href="#contact" @click="mobileMenu = false">HIRE</a>
-    </div>
-
-    <!-- 2. HERO SECTION -->
-    <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative overflow-hidden">
-        <div class="absolute top-0 w-full h-full pointer-events-none opacity-20">
-            <div class="absolute top-[20%] left-[10%] w-96 h-96 bg-blue-500 rounded-full blur-[150px]"></div>
-            <div class="absolute bottom-[20%] right-[10%] w-96 h-96 bg-purple-500 rounded-full blur-[150px]"></div>
-        </div>
-        
-        <div data-aos="fade-up" data-aos-duration="1000">
-            <span class="px-4 py-2 glass-card rounded-full text-[10px] font-bold tracking-[0.3em] uppercase mb-8 inline-block border-white/20">Independent Creative Partner</span>
-            <h1 class="text-6xl md:text-9xl font-black leading-[0.85] tracking-tighter mb-8 gradient-text">
-                VISIONARY <br> EXECUTION.
+    <!-- HERO SECTION -->
+    <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative">
+        <div data-aos="fade-up" data-aos-duration="1200">
+            <h1 class="text-6xl md:text-[10rem] font-black leading-[0.85] tracking-tighter mb-10 gradient-text">
+                LIMITLESS <br> VISION.
             </h1>
-            <p class="text-gray-400 max-w-2xl text-lg md:text-2xl mb-12 font-medium">
-                High-ticket Web Dev, Python Systems, & Creative Content for brands that refuse to be average.
+            <p class="text-gray-500 max-w-2xl text-lg md:text-xl mb-12 mx-auto font-medium leading-relaxed">
+                Premium Web Dev, Python Automation, and Content Strategy for elite brands.
             </p>
             <div class="flex flex-col md:flex-row gap-6 justify-center">
-                <a href="#work" class="btn-elite px-12 py-5 rounded-full font-extrabold text-lg">THE WORK</a>
-                <a href="mailto:spiderstark12@gmail.com" class="glass-card px-12 py-5 rounded-full font-extrabold text-lg">DIRECT EMAIL</a>
+                <a href="#work" class="bg-white text-black px-12 py-5 rounded-full font-black text-lg hover:shadow-[0_0_50px_rgba(255,255,255,0.4)] transition uppercase">Portfolio</a>
+                <a href="#contact" class="glass-card px-12 py-5 rounded-full font-black text-lg uppercase">Hire Studio</a>
             </div>
         </div>
     </section>
 
-    <!-- 3. SERVICES (MULTI-SKILL) -->
+    <!-- SERVICES BENTO GRID -->
     <section id="services" class="py-32 px-6 max-w-7xl mx-auto">
         <div class="mb-20" data-aos="fade-right">
-            <h2 class="text-5xl font-black tracking-tighter mb-4">CORE EXPERTISE</h2>
-            <p class="text-gray-500 text-xl">A complete stack designed for full business scale.</p>
+            <h2 class="text-5xl font-black tracking-tighter mb-4 uppercase">The Studio Stack</h2>
+            <p class="text-gray-500 text-xl font-medium">Quantifiable results through high-performance engineering.</p>
         </div>
 
-        <div class="grid md:grid-cols-4 gap-6">
-            <!-- Web Dev -->
-            <div class="glass-card p-10 md:col-span-2 group" data-aos="zoom-in">
-                <i class="fa-solid fa-code text-4xl mb-8 text-blue-400 group-hover:scale-110 transition-transform"></i>
-                <h3 class="text-3xl font-bold mb-4">Web Development</h3>
-                <p class="text-gray-500 leading-relaxed">Full-stack builds utilizing React, Tailwind, and high-speed server logic. We don't build sites; we build conversion engines.</p>
-            </div>
-            <!-- Python -->
-            <div class="glass-card p-10" data-aos="zoom-in" data-aos-delay="100">
-                <i class="fa-brands fa-python text-4xl mb-8 text-yellow-400"></i>
-                <h3 class="text-2xl font-bold mb-4">Python Automation</h3>
-                <p class="text-gray-500 leading-relaxed text-sm">Lead scrapers, data miners, and B2B automation tools designed to 10x output.</p>
-            </div>
-            <!-- Video -->
-            <div class="glass-card p-10" data-aos="zoom-in" data-aos-delay="200">
-                <i class="fa-solid fa-film text-4xl mb-8 text-red-500"></i>
-                <h3 class="text-2xl font-bold mb-4">Video Editing</h3>
-                <p class="text-gray-500 leading-relaxed text-sm">High-retention 4K edits for Reels, Shorts, and YouTube. Visual storytelling at speed.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. BENTO PORTFOLIO -->
-    <section id="work" class="py-32 px-6 max-w-7xl mx-auto bg-black/40 rounded-[50px]">
-        <div class="text-center mb-20" data-aos="fade-up">
-            <h2 class="text-6xl font-black tracking-tighter">PORTFOLIO BENTO</h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[300px]">
-            <!-- Project 1 -->
-            <div class="md:col-span-2 md:row-span-2 glass-card p-10 flex flex-col justify-end bg-[url('https://images.unsplash.com')] bg-cover relative overflow-hidden group" data-aos="fade-up">
-                <div class="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors"></div>
-                <div class="relative z-10">
-                    <span class="text-[10px] font-bold uppercase tracking-widest text-blue-400 mb-2 block">Premium Web Dev</span>
-                    <h4 class="text-4xl font-black mb-4">Apex Alpha Fitness</h4>
-                    <a href="#" class="text-sm font-bold border-b border-white hover:text-blue-400 hover:border-blue-400 transition">VIEW LIVE PROJECT</a>
+        <div class="grid md:grid-cols-4 gap-6 auto-rows-[350px]">
+            <div class="glass-card md:col-span-2 relative overflow-hidden rounded-[40px]" data-aos="zoom-in">
+                <img src="https://images.unsplash.com" class="bento-img absolute inset-0">
+                <div class="relative z-10 p-10 h-full flex flex-col justify-end">
+                    <h3 class="text-3xl font-black mb-2 uppercase">Web Development</h3>
+                    <p class="text-gray-400 text-sm max-w-xs">Conversion-optimized landing pages and SaaS architecture.</p>
                 </div>
             </div>
-            
-            <!-- Project 2 -->
-            <div class="glass-card p-8 flex flex-col justify-between hover:bg-yellow-400/10" data-aos="fade-up" data-aos-delay="100">
-                <i class="fa-brands fa-python text-5xl opacity-10"></i>
-                <div>
-                    <h5 class="font-bold text-xl mb-2 italic">LeadScraper v2.1</h5>
-                    <p class="text-xs text-gray-500">Automated 1,000+ lead data extraction across Google Maps.</p>
+            <div class="glass-card relative overflow-hidden rounded-[40px]" data-aos="zoom-in" data-aos-delay="100">
+                <img src="https://images.unsplash.com" class="bento-img absolute inset-0">
+                <div class="relative z-10 p-10 h-full flex flex-col justify-end">
+                    <h3 class="text-xl font-black mb-2 uppercase">Python Automation</h3>
+                    <p class="text-gray-400 text-xs">Custom scrapers and B2B lead generation engines.</p>
                 </div>
             </div>
-
-            <!-- Project 3 -->
-            <div class="glass-card p-8 flex flex-col justify-between hover:bg-red-500/10" data-aos="fade-up" data-aos-delay="200">
-                <i class="fa-solid fa-play text-5xl opacity-10"></i>
-                <h5 class="font-bold text-xl mb-2 italic text-glow">Viral Retention Pack</h5>
-            </div>
-
-            <!-- Project 4 (Thumbnail) -->
-            <div class="md:col-span-2 glass-card p-10 flex items-center justify-between group overflow-hidden" data-aos="fade-up">
-                <div class="max-w-xs">
-                    <h5 class="text-2xl font-black mb-2">High-CTR Graphics</h5>
-                    <p class="text-gray-500 text-sm italic">Designed for top-tier creators with 10M+ views.</p>
+            <div class="glass-card relative overflow-hidden rounded-[40px]" data-aos="zoom-in" data-aos-delay="200">
+                <img src="https://images.unsplash.com" class="bento-img absolute inset-0">
+                <div class="relative z-10 p-10 h-full flex flex-col justify-end">
+                    <h3 class="text-xl font-black mb-2 uppercase">Visual Strategy</h3>
+                    <p class="text-gray-400 text-xs">High-CTR thumbnails and viral video retention edits.</p>
                 </div>
-                <div class="w-32 h-20 bg-zinc-800 rounded-xl group-hover:scale-110 transition-transform"></div>
             </div>
         </div>
     </section>
 
-    <!-- 5. REVIEWS & TRUST -->
-    <section id="reviews" class="py-32 bg-white text-black rounded-[50px] relative z-10">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-                <h2 class="text-6xl md:text-8xl font-black tracking-tighter" data-aos="fade-right">TRUSTED <br> BY ELITE.</h2>
-                <div class="text-right" data-aos="fade-left">
-                    <p class="text-5xl font-black italic">100%</p>
-                    <p class="font-bold text-xs uppercase opacity-40">Client Satisfaction</p>
-                </div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-16 border-t-2 border-black pt-16">
+    <!-- WHY CHOOSE ME SECTION -->
+    <section class="py-32 bg-white text-black rounded-[50px] relative z-10">
+        <div class="max-w-7xl mx-auto px-10">
+            <h2 class="text-6xl md:text-8xl font-black tracking-tighter mb-20 uppercase" data-aos="fade-up">Why AT.Digital?</h2>
+            <div class="grid md:grid-cols-3 gap-16">
                 <div data-aos="fade-up">
-                    <p class="text-2xl font-bold leading-relaxed mb-8">"Arnav delivered a system that automated our entire sales pipeline. His code is clean, and his vision is professional."</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-black rounded-full"></div>
-                        <div>
-                            <p class="font-bold">Mark R.</p>
-                            <p class="text-xs opacity-50 uppercase">CEO, FitPulse Gyms</p>
-                        </div>
-                    </div>
+                    <p class="text-4xl font-black italic mb-4">95+</p>
+                    <h4 class="font-bold uppercase tracking-widest text-xs mb-4">PageSpeed Score</h4>
+                    <p class="text-gray-500 text-sm">We build lightning-fast systems that retain users and increase ROI.</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <p class="text-4xl font-black italic mb-4">24H</p>
+                    <h4 class="font-bold uppercase tracking-widest text-xs mb-4">Execution Speed</h4>
+                    <p class="text-gray-500 text-sm">Rapid prototyping and high-fidelity delivery at professional speed.</p>
                 </div>
                 <div data-aos="fade-up" data-aos-delay="200">
-                    <p class="text-2xl font-bold leading-relaxed mb-8">"The retention editing style Arnav developed boosted our Reels viewership by 200% in a single month."</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-black rounded-full"></div>
-                        <div>
-                            <p class="font-bold">Sarah J.</p>
-                            <p class="text-xs opacity-50 uppercase">Founder, Bloom Media</p>
-                        </div>
-                    </div>
+                    <p class="text-4xl font-black italic mb-4">50+</p>
+                    <h4 class="font-bold uppercase tracking-widest text-xs mb-4">Projects Shipped</h4>
+                    <p class="text-gray-500 text-sm">A proven track record of delivering premium digital products.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 6. CONTACT (FUNCTIONAL) -->
+    <!-- TESTIMONIALS SECTION -->
+    <section id="reviews" class="py-32 px-6 max-w-7xl mx-auto text-center">
+        <h3 class="text-5xl font-black tracking-tighter mb-16 uppercase" data-aos="fade-up">Client Verdicts</h3>
+        <div class="grid md:grid-cols-2 gap-10">
+            <div class="glass-card p-12 text-left" data-aos="fade-right">
+                <p class="text-xl italic text-gray-400 mb-6">"The Python automation Arnav built for our team saved us 30 hours of work per week. Truly elite performance."</p>
+                <p class="font-bold text-sm text-white">Mark R., CEO of FitPulse</p>
+            </div>
+            <div class="glass-card p-12 text-left" data-aos="fade-left">
+                <p class="text-xl italic text-gray-400 mb-6">"Our CTR shot up by 15% after using the thumbnail strategy designed by this studio. Exceptional vision."</p>
+                <p class="font-bold text-sm text-white">Sarah J., Founder of Bloom Media</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM (FUNCTIONAL) -->
     <section id="contact" class="py-32 px-6 max-w-4xl mx-auto">
         <div class="text-center mb-16" data-aos="zoom-in">
-            <h2 class="text-5xl font-black tracking-tighter mb-4">LET'S BUILD.</h2>
-            <p class="text-gray-500">Currently accepting high-ticket projects for 2026.</p>
+            <h2 class="text-6xl font-black tracking-tighter mb-4 italic uppercase">Launch Project.</h2>
+            <p class="text-gray-500">Exclusively accepting high-ticket partners for Q1 2026.</p>
         </div>
 
-        <form action="https://formspree.io" method="POST" class="space-y-6" data-aos="fade-up">
+        <!-- Replace YOUR_ID_HERE with your Formspree ID -->
+        <form action="https://formspree.io
+            " method="POST" class="space-y-6" data-aos="fade-up">
             <div class="grid md:grid-cols-2 gap-6">
-                <input type="text" name="name" placeholder="FULL NAME" required class="w-full glass-card p-5 rounded-3xl outline-none focus:border-white/50 transition">
-                <input type="email" name="email" placeholder="BUSINESS EMAIL" required class="w-full glass-card p-5 rounded-3xl outline-none focus:border-white/50 transition">
+                <input type="text" name="name" placeholder="ORGANIZATION / NAME" required class="w-full glass-card p-6 rounded-3xl outline-none focus:border-white/40 transition font-bold text-xs tracking-widest">
+                <input type="email" name="email" placeholder="BUSINESS EMAIL" required class="w-full glass-card p-6 rounded-3xl outline-none focus:border-white/40 transition font-bold text-xs tracking-widest">
             </div>
-            <select name="service" class="w-full glass-card p-5 rounded-3xl outline-none focus:border-white/50 transition appearance-none text-gray-500">
-                <option value="web-dev">Full-Stack Web Development</option>
-                <option value="python">Python Automation</option>
-                <option value="creative">Content & Video Strategy</option>
-            </select>
-            <textarea name="message" rows="5" placeholder="PROJECT DETAILS & BUDGET" required class="w-full glass-card p-5 rounded-3xl outline-none focus:border-white/50 transition"></textarea>
-            <button type="submit" class="w-full btn-elite py-6 rounded-full font-black text-xl shadow-2xl">LAUNCH PROJECT &xrarr;</button>
+            <textarea name="message" rows="5" placeholder="PROJECT DETAILS" required class="w-full glass-card p-6 rounded-3xl outline-none focus:border-white/40 transition font-bold text-xs tracking-widest"></textarea>
+            <button type="submit" class="w-full bg-white text-black py-6 rounded-full font-black text-xl hover:shadow-[0_0_50px_rgba(255,255,255,0.4)] transition">SUBMIT PROPOSAL</button>
         </form>
     </section>
 
-    <!-- 7. FOOTER -->
-    <footer class="py-20 px-8 border-t border-white/5 relative bg-black">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
-            <div class="text-center md:text-left">
-                <h4 class="text-4xl font-black tracking-tighter mb-4 italic">AT.DIGITAL</h4>
-                <p class="text-gray-600 max-w-xs text-sm">Building digital infrastructure for businesses who demand results.</p>
-            </div>
-            <div class="flex flex-col gap-4 text-center md:text-right">
-                <a href="mailto:spiderstark12@gmail.com" class="text-2xl font-black gradient-text">spiderstark12@gmail.com</a>
-                <div class="flex justify-center md:justify-end gap-6 text-gray-600">
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="text-center mt-20 text-[8px] tracking-[1em] text-gray-800 uppercase font-black">© 2026 ARNAV TYAGI. SECURE ACCESS ONLY.</div>
+    <!-- FOOTER -->
+    <footer class="py-20 text-center border-t border-white/5 opacity-50">
+        <p class="text-[8px] tracking-[1em] uppercase mb-4">© 2026 AT.DIGITAL STUDIO. ALL RIGHTS RESERVED.</p>
+        <p class="text-[10px] tracking-widest">Direct: <a href="mailto:spiderstark12@gmail.com" class="hover:text-white">spiderstark12@gmail.com</a></p>
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com"></script>
+    <!-- AOS Script Initialization -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ once: true });
-        
-        // Custom Navbar Scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) header.classList.add('py-2');
-            else header.classList.remove('py-2');
-        });
+        AOS.init({ once: true, duration: 800, offset: 120 });
     </script>
 </body>
 </html>
