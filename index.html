@@ -17,7 +17,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Animated Mesh Background */
 .bg-mesh {
   position: fixed;
   width: 200%;
@@ -79,7 +78,7 @@ body {
 <header id="navbar" class="fixed w-full z-50 transition-all duration-300">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
     <h1 class="text-xl font-bold tracking-wider">Apex Alpha</h1>
-    <a href="#pricing" class="bg-white text-black px-6 py-2 rounded-full font-semibold glow-btn">
+    <a href="mailto:spiderstark12@://gmail.com Call Request" class="bg-white text-black px-6 py-2 rounded-full font-semibold glow-btn">
       Book Strategy Call
     </a>
   </div>
@@ -97,7 +96,7 @@ body {
     </p>
     <div class="flex flex-col md:flex-row gap-6 justify-center">
       <a href="mailto:spiderstark12@://gmail.com Alpha Application" class="bg-white text-black px-8 py-4 rounded-full font-semibold glow-btn text-center inline-block">
-  Apply Now
+        Apply Now
       </a>
       <a href="#features" class="border border-white px-8 py-4 rounded-full hover:bg-white hover:text-black transition">
         Explore Program
@@ -146,7 +145,7 @@ body {
   </div>
 </section>
 
-<!-- PRICING TOGGLE -->
+<!-- PRICING -->
 <section id="pricing" class="py-24 px-6 text-center">
   <h3 class="text-3xl md:text-5xl font-bold mb-10">Investment</h3>
 
@@ -156,42 +155,42 @@ body {
   </div>
 
   <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-10">
-
     <div class="glass p-10 rounded-3xl hover-lift">
       <h4 class="text-2xl font-semibold mb-4">Alpha</h4>
       <p id="price1" class="text-4xl font-bold mb-6">₹5,000/mo</p>
-      <button class="bg-white text-black px-6 py-3 rounded-full font-semibold glow-btn">
+      <a href="mailto:spiderstark12@://gmail.com Plan Inquiry" class="bg-white text-black px-6 py-3 rounded-full font-semibold glow-btn inline-block">
         Subscribe
-      </button>
+      </a>
     </div>
 
     <div class="bg-white text-black p-10 rounded-3xl hover-lift scale-105">
       <h4 class="text-2xl font-semibold mb-4">Apex Elite</h4>
       <p id="price2" class="text-4xl font-bold mb-6">₹15,000/mo</p>
-      <button class="bg-black text-white px-6 py-3 rounded-full font-semibold glow-btn">
+      <a href="mailto:spiderstark12@://gmail.com Elite Inquiry" class="bg-black text-white px-6 py-3 rounded-full font-semibold glow-btn inline-block">
         Go Elite
-      </button>
+      </a>
     </div>
-
   </div>
 </section>
 
 <!-- FAQ -->
 <section class="py-24 px-6 max-w-3xl mx-auto">
   <h3 class="text-3xl md:text-5xl font-bold text-center mb-16">FAQs</h3>
-
   <div class="space-y-6">
     <div class="glass p-6 rounded-xl">
-      <button class="w-full text-left font-semibold" onclick="toggleAccordion(this)">How fast will I see results?</button>
+      <button class="w-full text-left font-semibold flex justify-between" onclick="toggleAccordion(this)">
+        How fast will I see results? <span>+</span>
+      </button>
       <div class="accordion-content mt-2 text-gray-400">
-        Most clients see noticeable results within 4–6 weeks.
+        Most clients see noticeable results within 4–6 weeks of consistent work.
       </div>
     </div>
-
     <div class="glass p-6 rounded-xl">
-      <button class="w-full text-left font-semibold" onclick="toggleAccordion(this)">Is it beginner friendly?</button>
+      <button class="w-full text-left font-semibold flex justify-between" onclick="toggleAccordion(this)">
+        Is it beginner friendly? <span>+</span>
+      </button>
       <div class="accordion-content mt-2 text-gray-400">
-        Yes. Programs scale to your current level.
+        Yes. All programs are scaled to your current fitness level and equipment access.
       </div>
     </div>
   </div>
@@ -204,9 +203,8 @@ body {
 </footer>
 
 <!-- WhatsApp -->
-<a href="https://wa.me/919999999999" target="_blank"
-class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full text-2xl shadow-lg hover:scale-110 transition">
-<i class="fa-brands fa-whatsapp"></i>
+<a href="https://wa.me/919999999999" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full text-2xl shadow-lg hover:scale-110 transition">
+  <i class="fa-brands fa-whatsapp"></i>
 </a>
 
 <script>
@@ -216,10 +214,10 @@ counters.forEach(counter => {
   const update = () => {
     const target = +counter.getAttribute('data-target');
     const count = +counter.innerText;
-    const increment = target / 200;
+    const increment = target / 100;
     if(count < target){
       counter.innerText = Math.ceil(count + increment);
-      setTimeout(update, 10);
+      setTimeout(update, 20);
     } else {
       counter.innerText = target;
     }
@@ -240,23 +238,32 @@ window.addEventListener("scroll", function(){
 /* Pricing Toggle */
 const monthlyBtn = document.getElementById("monthlyBtn");
 const quarterlyBtn = document.getElementById("quarterlyBtn");
-
-monthlyBtn.onclick = () => {
-  document.getElementById("price1").innerText = "₹5,000/mo";
-  document.getElementById("price2").innerText = "₹15,000/mo";
-};
+const p1 = document.getElementById("price1");
+const p2 = document.getElementById("price2");
 
 quarterlyBtn.onclick = () => {
-  document.getElementById("price1").innerText = "₹13,500/3mo";
-  document.getElementById("price2").innerText = "₹40,000/3mo";
+  p1.innerText = "₹12,500/qtr";
+  p2.innerText = "₹40,000/qtr";
+  quarterlyBtn.className = "px-6 py-2 bg-white text-black rounded-r-full font-semibold";
+  monthlyBtn.className = "px-6 py-2 border border-white rounded-l-full font-semibold text-white";
 };
 
-/* FAQ Accordion */
-function toggleAccordion(btn){
+monthlyBtn.onclick = () => {
+  p1.innerText = "₹5,000/mo";
+  p2.innerText = "₹15,000/mo";
+  monthlyBtn.className = "px-6 py-2 bg-white text-black rounded-l-full font-semibold";
+  quarterlyBtn.className = "px-6 py-2 border border-white rounded-r-full font-semibold text-white";
+};
+
+/* Accordion */
+function toggleAccordion(btn) {
   const content = btn.nextElementSibling;
-  content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
+  if (content.style.maxHeight) {
+    content.style.maxHeight = null;
+  } else {
+    content.style.maxHeight = content.scrollHeight + "px";
+  }
 }
 </script>
-
 </body>
 </html>
