@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Apex Alpha | Elite Performance Coaching</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://kit.fontawesome.com/7a4b62b0a4.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-family: 'Inter', sans-serif;
+  background: #000;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Animated Mesh Background */
+.bg-mesh {
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(circle at 30% 30%, #111 0%, transparent 40%),
+              radial-gradient(circle at 70% 70%, #222 0%, transparent 40%);
+  animation: moveBg 20s linear infinite alternate;
+  z-index: -1;
+}
+@keyframes moveBg {
+  from { transform: translate(0,0); }
+  to { transform: translate(100px,100px); }
+}
+
+.glass {
+  backdrop-filter: blur(20px);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.hover-lift {
+  transition: all 0.35s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+.glow-btn {
+  box-shadow: 0 0 20px rgba(255,255,255,0.3);
+  transition: all 0.3s ease;
+}
+.glow-btn:hover {
+  box-shadow: 0 0 50px rgba(255,255,255,0.7);
+  transform: translateY(-3px);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg,#fff,#888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+</style>
+</head>
+
+<body class="text-white">
+
+<div class="bg-mesh"></div>
+
+<!-- NAV -->
+<header id="navbar" class="fixed w-full z-50 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold tracking-wider">Apex Alpha</h1>
+    <a href="#pricing" class="bg-white text-black px-6 py-2 rounded-full font-semibold glow-btn">
+      Book Strategy Call
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="min-h-screen flex items-center justify-center text-center px-6">
+  <div class="max-w-5xl">
+    <h2 class="text-4xl md:text-7xl font-black leading-tight mb-6">
+      Build an <span class="gradient-text">Unbreakable</span> Body.
+      <br> Operate at Apex Level.
+    </h2>
+    <p class="text-gray-400 text-lg md:text-xl mb-10">
+      Elite transformation systems for men who refuse average.
+    </p>
+    <div class="flex flex-col md:flex-row gap-6 justify-center">
+      <a href="#pricing" class="bg-white text-black px-8 py-4 rounded-full font-semibold glow-btn">
+        Apply Now
+      </a>
+      <a href="#features" class="border border-white px-8 py-4 rounded-full hover:bg-white hover:text-black transition">
+        Explore Program
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="py-20 text-center">
+  <div class="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+    <div>
+      <h3 class="text-5xl font-bold counter" data-target="250">0</h3>
+      <p class="text-gray-400 mt-2">Clients Transformed</p>
+    </div>
+    <div>
+      <h3 class="text-5xl font-bold counter" data-target="96">0</h3>
+      <p class="text-gray-400 mt-2">Success Rate (%)</p>
+    </div>
+    <div>
+      <h3 class="text-5xl font-bold counter" data-target="5">0</h3>
+      <p class="text-gray-400 mt-2">Years Coaching</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES BENTO -->
+<section id="features" class="py-24 px-6">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[220px]">
+    <div class="glass p-8 rounded-2xl md:col-span-2 hover-lift">
+      <h4 class="text-xl font-semibold mb-2">Custom Performance Systems</h4>
+      <p class="text-gray-400">Fully tailored training & recovery structure.</p>
+    </div>
+    <div class="glass p-8 rounded-2xl hover-lift">
+      <h4 class="text-xl font-semibold mb-2">Precision Nutrition</h4>
+      <p class="text-gray-400">Macros optimized for peak performance.</p>
+    </div>
+    <div class="glass p-8 rounded-2xl hover-lift">
+      <h4 class="text-xl font-semibold mb-2">Mindset Engineering</h4>
+      <p class="text-gray-400">Elite discipline & execution frameworks.</p>
+    </div>
+    <div class="glass p-8 rounded-2xl md:col-span-2 hover-lift">
+      <h4 class="text-xl font-semibold mb-2">Weekly Analytics Dashboard</h4>
+      <p class="text-gray-400">Track physique, lifts & progress metrics.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING TOGGLE -->
+<section id="pricing" class="py-24 px-6 text-center">
+  <h3 class="text-3xl md:text-5xl font-bold mb-10">Investment</h3>
+
+  <div class="flex justify-center mb-10">
+    <button id="monthlyBtn" class="px-6 py-2 bg-white text-black rounded-l-full font-semibold">Monthly</button>
+    <button id="quarterlyBtn" class="px-6 py-2 border border-white rounded-r-full font-semibold">Quarterly</button>
+  </div>
+
+  <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-10">
+
+    <div class="glass p-10 rounded-3xl hover-lift">
+      <h4 class="text-2xl font-semibold mb-4">Alpha</h4>
+      <p id="price1" class="text-4xl font-bold mb-6">₹5,000/mo</p>
+      <button class="bg-white text-black px-6 py-3 rounded-full font-semibold glow-btn">
+        Subscribe
+      </button>
+    </div>
+
+    <div class="bg-white text-black p-10 rounded-3xl hover-lift scale-105">
+      <h4 class="text-2xl font-semibold mb-4">Apex Elite</h4>
+      <p id="price2" class="text-4xl font-bold mb-6">₹15,000/mo</p>
+      <button class="bg-black text-white px-6 py-3 rounded-full font-semibold glow-btn">
+        Go Elite
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-24 px-6 max-w-3xl mx-auto">
+  <h3 class="text-3xl md:text-5xl font-bold text-center mb-16">FAQs</h3>
+
+  <div class="space-y-6">
+    <div class="glass p-6 rounded-xl">
+      <button class="w-full text-left font-semibold" onclick="toggleAccordion(this)">How fast will I see results?</button>
+      <div class="accordion-content mt-2 text-gray-400">
+        Most clients see noticeable results within 4–6 weeks.
+      </div>
+    </div>
+
+    <div class="glass p-6 rounded-xl">
+      <button class="w-full text-left font-semibold" onclick="toggleAccordion(this)">Is it beginner friendly?</button>
+      <div class="accordion-content mt-2 text-gray-400">
+        Yes. Programs scale to your current level.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-10 text-center border-t border-gray-800">
+  <h4 class="text-xl font-bold mb-4">Apex Alpha</h4>
+  <p class="text-gray-500 text-sm">© 2026 Apex Alpha. All rights reserved.</p>
+</footer>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/919999999999" target="_blank"
+class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full text-2xl shadow-lg hover:scale-110 transition">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script>
+/* Counter Animation */
+const counters = document.querySelectorAll('.counter');
+counters.forEach(counter => {
+  const update = () => {
+    const target = +counter.getAttribute('data-target');
+    const count = +counter.innerText;
+    const increment = target / 200;
+    if(count < target){
+      counter.innerText = Math.ceil(count + increment);
+      setTimeout(update, 10);
+    } else {
+      counter.innerText = target;
+    }
+  }
+  update();
+});
+
+/* Navbar Blur */
+window.addEventListener("scroll", function(){
+  const nav = document.getElementById("navbar");
+  if(window.scrollY > 50){
+    nav.classList.add("bg-black/80","backdrop-blur-lg","shadow-lg");
+  } else {
+    nav.classList.remove("bg-black/80","backdrop-blur-lg","shadow-lg");
+  }
+});
+
+/* Pricing Toggle */
+const monthlyBtn = document.getElementById("monthlyBtn");
+const quarterlyBtn = document.getElementById("quarterlyBtn");
+
+monthlyBtn.onclick = () => {
+  document.getElementById("price1").innerText = "₹5,000/mo";
+  document.getElementById("price2").innerText = "₹15,000/mo";
+};
+
+quarterlyBtn.onclick = () => {
+  document.getElementById("price1").innerText = "₹13,500/3mo";
+  document.getElementById("price2").innerText = "₹40,000/3mo";
+};
+
+/* FAQ Accordion */
+function toggleAccordion(btn){
+  const content = btn.nextElementSibling;
+  content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
+}
+</script>
+
+</body>
+</html>
