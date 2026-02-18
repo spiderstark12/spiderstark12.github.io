@@ -6,8 +6,8 @@
 <title>Apex Alpha | Elite Performance Coaching</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://kit.fontawesome.com/7a4b62b0a4.js" crossorigin="anonymous"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com" rel="stylesheet">
 
 <style>
 body {
@@ -78,7 +78,7 @@ body {
 <header id="navbar" class="fixed w-full z-50 transition-all duration-300">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
     <h1 class="text-xl font-bold tracking-wider">Apex Alpha</h1>
-    <a href="mailto:spiderstark12@://gmail.com Call Request" class="bg-white text-black px-6 py-2 rounded-full font-semibold glow-btn">
+    <a href="mailto:spiderstark12@://gmail.com: Strategy Call" class="bg-white text-black px-6 py-2 rounded-full font-semibold glow-btn">
       Book Strategy Call
     </a>
   </div>
@@ -158,7 +158,7 @@ body {
     <div class="glass p-10 rounded-3xl hover-lift">
       <h4 class="text-2xl font-semibold mb-4">Alpha</h4>
       <p id="price1" class="text-4xl font-bold mb-6">₹5,000/mo</p>
-      <a href="mailto:spiderstark12@://gmail.com Plan Inquiry" class="bg-white text-black px-6 py-3 rounded-full font-semibold glow-btn inline-block">
+      <a href="mailto:spiderstark12@://gmail.com Plan Subscription" class="bg-white text-black px-6 py-3 rounded-full font-semibold glow-btn inline-block">
         Subscribe
       </a>
     </div>
@@ -166,7 +166,7 @@ body {
     <div class="bg-white text-black p-10 rounded-3xl hover-lift scale-105">
       <h4 class="text-2xl font-semibold mb-4">Apex Elite</h4>
       <p id="price2" class="text-4xl font-bold mb-6">₹15,000/mo</p>
-      <a href="mailto:spiderstark12@://gmail.com Elite Inquiry" class="bg-black text-white px-6 py-3 rounded-full font-semibold glow-btn inline-block">
+      <a href="mailto:spiderstark12@://gmail.com Elite Subscription" class="bg-black text-white px-6 py-3 rounded-full font-semibold glow-btn inline-block">
         Go Elite
       </a>
     </div>
@@ -182,7 +182,7 @@ body {
         How fast will I see results? <span>+</span>
       </button>
       <div class="accordion-content mt-2 text-gray-400">
-        Most clients see noticeable results within 4–6 weeks of consistent work.
+        Most clients see noticeable physique and energy changes within 4–6 weeks.
       </div>
     </div>
     <div class="glass p-6 rounded-xl">
@@ -190,7 +190,7 @@ body {
         Is it beginner friendly? <span>+</span>
       </button>
       <div class="accordion-content mt-2 text-gray-400">
-        Yes. All programs are scaled to your current fitness level and equipment access.
+        Yes. All systems are custom-built to match your current fitness level and equipment.
       </div>
     </div>
   </div>
@@ -202,13 +202,13 @@ body {
   <p class="text-gray-500 text-sm">© 2026 Apex Alpha. All rights reserved.</p>
 </footer>
 
-<!-- WhatsApp -->
-<a href="https://wa.me/919999999999" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full text-2xl shadow-lg hover:scale-110 transition">
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full text-2xl shadow-lg hover:scale-110 transition z-50">
   <i class="fa-brands fa-whatsapp"></i>
 </a>
 
 <script>
-/* Counter Animation */
+/* Counters */
 const counters = document.querySelectorAll('.counter');
 counters.forEach(counter => {
   const update = () => {
@@ -225,29 +225,25 @@ counters.forEach(counter => {
   update();
 });
 
-/* Navbar Blur */
+/* Nav Scroll Effect */
 window.addEventListener("scroll", function(){
   const nav = document.getElementById("navbar");
-  if(window.scrollY > 50){
-    nav.classList.add("bg-black/80","backdrop-blur-lg","shadow-lg");
-  } else {
-    nav.classList.remove("bg-black/80","backdrop-blur-lg","shadow-lg");
-  }
+  if(window.scrollY > 50) nav.classList.add("bg-black/80","backdrop-blur-lg");
+  else nav.classList.remove("bg-black/80","backdrop-blur-lg");
 });
 
-/* Pricing Toggle */
+/* Toggle Prices */
 const monthlyBtn = document.getElementById("monthlyBtn");
 const quarterlyBtn = document.getElementById("quarterlyBtn");
 const p1 = document.getElementById("price1");
 const p2 = document.getElementById("price2");
 
 quarterlyBtn.onclick = () => {
-  p1.innerText = "₹12,500/qtr";
+  p1.innerText = "₹13,500/qtr";
   p2.innerText = "₹40,000/qtr";
   quarterlyBtn.className = "px-6 py-2 bg-white text-black rounded-r-full font-semibold";
   monthlyBtn.className = "px-6 py-2 border border-white rounded-l-full font-semibold text-white";
 };
-
 monthlyBtn.onclick = () => {
   p1.innerText = "₹5,000/mo";
   p2.innerText = "₹15,000/mo";
@@ -258,10 +254,13 @@ monthlyBtn.onclick = () => {
 /* Accordion */
 function toggleAccordion(btn) {
   const content = btn.nextElementSibling;
+  const span = btn.querySelector('span');
   if (content.style.maxHeight) {
     content.style.maxHeight = null;
+    span.innerText = "+";
   } else {
     content.style.maxHeight = content.scrollHeight + "px";
+    span.innerText = "-";
   }
 }
 </script>
