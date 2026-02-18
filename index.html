@@ -1,304 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Apex Alpha | Elite Performance Coaching</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Premium Dark Portfolio</title>
 
-    <!-- Tailwind & Icons -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://kit.fontawesome.com" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com" rel="stylesheet">
+<!-- Inter Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #000;
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
 
-        /* Animated Mesh Background */
-        .bg-mesh {
-            position: fixed;
-            width: 200%;
-            height: 200%;
-            top: -50%;
-            left: -50%;
-            background: radial-gradient(circle at 30% 30%, #111 0%, transparent 40%),
-                        radial-gradient(circle at 70% 70%, #222 0%, transparent 40%);
-            animation: moveBg 20s linear infinite alternate;
-            z-index: -1;
-        }
-        @keyframes moveBg {
-            from { transform: translate(0,0); }
-            to { transform: translate(100px,100px); }
-        }
+<style>
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0f172a;
+  scroll-behavior: smooth;
+}
 
-        .glass {
-            backdrop-filter: blur(20px);
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.08);
-        }
+/* Glow Hover */
+.card-hover:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(99,102,241,0.4);
+}
 
-        .hover-lift {
-            transition: all 0.35s ease;
-        }
-        .hover-lift:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-        }
+/* Fade Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-        .glow-btn {
-            box-shadow: 0 0 20px rgba(255,255,255,0.3);
-            transition: all 0.3s ease;
-        }
-        .glow-btn:hover {
-            box-shadow: 0 0 50px rgba(255,255,255,0.7);
-            transform: translateY(-3px);
-        }
+/* Magnetic Button */
+.magnetic {
+  transition: transform 0.2s ease;
+}
 
-        .gradient-text {
-            background: linear-gradient(90deg,#fff,#888);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+/* Glass Form */
+.glass {
+  backdrop-filter: blur(15px);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+}
 
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease;
-        }
-    </style>
+/* Back to Top */
+#backToTop {
+  display: none;
+}
+</style>
 </head>
 
-<body class="text-white">
+<body class="text-gray-200">
 
-<div class="bg-mesh"></div>
-
-<!-- NAVIGATION -->
-<header id="navbar" class="fixed w-full z-50 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <h1 class="text-xl font-bold tracking-wider">Apex Alpha</h1>
-        <a href="mailto:spiderstark12@://gmail.com: Strategy Call" class="bg-white text-black px-6 py-2 rounded-full font-semibold glow-btn text-sm">
-            Book Strategy Call
-        </a>
-    </div>
-</header>
-
-<!-- HERO SECTION -->
-<section class="min-h-screen flex items-center justify-center text-center px-6 pt-20">
-    <div class="max-w-5xl">
-        <h2 class="text-5xl md:text-8xl font-black leading-tight mb-6">
-            Build an <span class="gradient-text">Unbreakable</span> Body.
-            <br> Operate at Apex Level.
-        </h2>
-        <p class="text-gray-400 text-lg md:text-2xl mb-10">
-            Elite transformation systems for individuals who refuse average.
-        </p>
-        <div class="flex flex-col md:flex-row gap-6 justify-center">
-            <a href="mailto:spiderstark12@://gmail.com Alpha Application" class="bg-white text-black px-10 py-5 rounded-full font-bold glow-btn text-lg inline-block">
-                Apply Now
-            </a>
-            <a href="#features" class="border border-white/20 glass px-10 py-5 rounded-full hover:bg-white hover:text-black transition text-lg">
-                Explore Program
-            </a>
-        </div>
-    </div>
+<!-- HERO -->
+<section class="min-h-screen flex flex-col justify-center items-center text-center px-6">
+  <h1 class="text-4xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">
+    Building Digital Experiences That Convert
+  </h1>
+  <p class="max-w-2xl text-gray-400 mb-8">
+    Full-Stack Developer • UI Designer • Creative Technologist
+  </p>
+  <button id="ctaBtn" class="magnetic px-8 py-4 bg-indigo-600 rounded-xl font-semibold text-lg hover:bg-indigo-500 transition-all">
+    Let's Work Together
+  </button>
 </section>
 
-<!-- PERFORMANCE STATS -->
-<section class="py-20 text-center border-y border-white/5 bg-black/40">
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
-        <div>
-            <h3 class="text-5xl font-bold counter" data-target="250">0</h3>
-            <p class="text-gray-500 mt-2">Elite Clients</p>
-        </div>
-        <div>
-            <h3 class="text-5xl font-bold counter" data-target="96">0</h3>
-            <p class="text-gray-500 mt-2">Success Rate (%)</p>
-        </div>
-        <div class="col-span-2 md:col-span-1">
-            <h3 class="text-5xl font-bold counter" data-target="5">0</h3>
-            <p class="text-gray-500 mt-2">Years of Coaching</p>
-        </div>
+<!-- STATS -->
+<section class="py-20 px-6 text-center fade-in">
+  <div class="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+    <div>
+      <h2 class="text-5xl font-bold text-indigo-400 counter" data-target="50">0</h2>
+      <p class="text-gray-400 mt-2">Projects Completed</p>
     </div>
+    <div>
+      <h2 class="text-5xl font-bold text-indigo-400 counter" data-target="100">0</h2>
+      <p class="text-gray-400 mt-2">Client Satisfaction %</p>
+    </div>
+    <div>
+      <h2 class="text-5xl font-bold text-indigo-400 counter" data-target="24">0</h2>
+      <p class="text-gray-400 mt-2">Hour Response Time</p>
+    </div>
+  </div>
 </section>
 
-<!-- FEATURES BENTO GRID -->
-<section id="features" class="py-32 px-6">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]">
-        <div class="glass p-10 rounded-3xl md:col-span-2 hover-lift flex flex-col justify-end">
-            <h4 class="text-2xl font-semibold mb-2 text-white">Custom Performance Systems</h4>
-            <p class="text-gray-400">Every plan is engineered specifically for your biology and lifestyle.</p>
-        </div>
-        <div class="glass p-10 rounded-3xl hover-lift flex flex-col justify-end">
-            <h4 class="text-xl font-semibold mb-2 text-white">Precision Nutrition</h4>
-            <p class="text-gray-400">Macros optimized for cognition and power.</p>
-        </div>
-        <div class="glass p-10 rounded-3xl hover-lift flex flex-col justify-end">
-            <h4 class="text-xl font-semibold mb-2 text-white">Mindset Engineering</h4>
-            <p class="text-gray-400">Fortify your discipline with elite frameworks.</p>
-        </div>
-        <div class="glass p-10 rounded-3xl md:col-span-2 hover-lift flex flex-col justify-end">
-            <h4 class="text-2xl font-semibold mb-2 text-white">Advanced Analytics</h4>
-            <p class="text-gray-400">Track every lift and physique metric via our cloud dashboard.</p>
-        </div>
-    </div>
+<!-- SKILLS -->
+<section class="py-20 px-6 fade-in">
+  <h2 class="text-3xl font-bold text-center mb-12">Skills</h2>
+  <div class="flex flex-wrap justify-center gap-6">
+    <span class="px-6 py-3 rounded-full bg-indigo-600/20 border border-indigo-500 text-indigo-300 hover:shadow-lg hover:shadow-indigo-500/40 transition-all">Python</span>
+    <span class="px-6 py-3 rounded-full bg-purple-600/20 border border-purple-500 text-purple-300 hover:shadow-lg hover:shadow-purple-500/40 transition-all">Web Development</span>
+    <span class="px-6 py-3 rounded-full bg-pink-600/20 border border-pink-500 text-pink-300 hover:shadow-lg hover:shadow-pink-500/40 transition-all">Video Editing</span>
+  </div>
 </section>
 
-<!-- PRICING SECTION -->
-<section id="pricing" class="py-32 px-6 text-center">
-    <h3 class="text-4xl md:text-6xl font-bold mb-10 tracking-tighter">Investment</h3>
-    
-    <div class="flex justify-center mb-16">
-        <div class="glass p-1 rounded-full flex gap-1">
-            <button id="monthlyBtn" class="px-8 py-3 bg-white text-black rounded-full font-bold transition">Monthly</button>
-            <button id="quarterlyBtn" class="px-8 py-3 text-white rounded-full font-bold transition hover:bg-white/5">Quarterly</button>
-        </div>
+<!-- PROJECTS (BENTO GRID) -->
+<section class="py-20 px-6 fade-in">
+  <h2 class="text-3xl font-bold text-center mb-12">Projects</h2>
+  <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+    <div class="card-hover bg-gray-900 p-8 rounded-2xl transition-all">
+      <h3 class="text-xl font-semibold mb-4">AI Automation Platform</h3>
+      <p class="text-gray-400">Custom AI workflows that saved clients 30% time.</p>
     </div>
-
-    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
-        <div class="glass p-12 rounded-[40px] hover-lift">
-            <h4 class="text-xl text-gray-500 mb-4 uppercase tracking-widest">Alpha</h4>
-            <p id="price1" class="text-5xl font-bold mb-8">₹5,000/mo</p>
-            <ul class="text-gray-400 text-left space-y-4 mb-10">
-                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-white"></i> Custom Workout Plan</li>
-                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-white"></i> Nutrition Protocol</li>
-                <li class="flex items-center gap-3"><i class="fa-solid fa-check text-white text-opacity-20"></i> Weekly Video Feedback</li>
-            </ul>
-            <a href="mailto:spiderstark12@://gmail.com Plan Inquiry" class="w-full bg-white text-black py-4 rounded-full font-bold glow-btn inline-block">Join Now</a>
-        </div>
-
-        <div class="bg-white text-black p-12 rounded-[40px] hover-lift scale-105">
-            <h4 class="text-xl text-gray-500 mb-4 uppercase tracking-widest">Apex Elite</h4>
-            <p id="price2" class="text-5xl font-bold mb-8">₹15,000/mo</p>
-            <ul class="text-gray-800 text-left space-y-4 mb-10 font-medium">
-                <li class="flex items-center gap-3"><i class="fa-solid fa-bolt"></i> 1-on-1 Daily Accountability</li>
-                <li class="flex items-center gap-3"><i class="fa-solid fa-bolt"></i> Weekly Deep-Dive Bio-Feedback</li>
-                <li class="flex items-center gap-3"><i class="fa-solid fa-bolt"></i> 24/7 Priority Support</li>
-            </ul>
-            <a href="mailto:spiderstark12@://gmail.com Elite Inquiry" class="w-full bg-black text-white py-4 rounded-full font-bold glow-btn inline-block">Go Elite</a>
-        </div>
+    <div class="card-hover bg-gray-900 p-8 rounded-2xl md:col-span-2 transition-all">
+      <h3 class="text-xl font-semibold mb-4">SaaS Dashboard UI</h3>
+      <p class="text-gray-400">High-converting dashboard with analytics & charts.</p>
     </div>
+    <div class="card-hover bg-gray-900 p-8 rounded-2xl transition-all">
+      <h3 class="text-xl font-semibold mb-4">Brand Identity System</h3>
+      <p class="text-gray-400">Complete visual system & marketing website.</p>
+    </div>
+  </div>
 </section>
 
-<!-- PROFESSIONAL FOOTER -->
-<footer class="py-20 px-6 border-t border-gray-900 bg-black/50 backdrop-blur-md">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 text-left">
-      <div class="space-y-6">
-        <h4 class="text-2xl font-bold tracking-tighter">Apex Alpha</h4>
-        <p class="text-gray-500 leading-relaxed">
-          High-performance systems for individuals who demand elite results. 
-          Engineered for precision and unbreakable execution.
-        </p>
-        <div class="flex gap-4 text-gray-400">
-          <a href="#" class="hover:text-white transition"><i class="fa-brands fa-x-twitter"></i></a>
-          <a href="#" class="hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#" class="hover:text-white transition"><i class="fa-brands fa-linkedin-in"></i></a>
-        </div>
-      </div>
-  
-      <div>
-        <h5 class="font-semibold mb-6 text-white uppercase tracking-widest text-xs">Navigation</h5>
-        <ul class="space-y-4 text-gray-500">
-          <li><a href="#" class="hover:text-white transition">Home</a></li>
-          <li><a href="#features" class="hover:text-white transition">Performance</a></li>
-          <li><a href="#pricing" class="hover:text-white transition">Programs</a></li>
-        </ul>
-      </div>
-  
-      <div>
-        <h5 class="font-semibold mb-6 text-white uppercase tracking-widest text-xs">Direct Support</h5>
-        <ul class="space-y-4 text-gray-500">
-          <li class="flex items-center gap-3">
-            <i class="fa-solid fa-envelope text-white/50"></i>
-            <a href="mailto:spiderstark12@gmail.com" class="hover:text-white transition text-sm">spiderstark12@gmail.com</a>
-          </li>
-          <li class="flex items-center gap-3">
-            <i class="fa-solid fa-location-dot text-white/50"></i>
-            <span class="text-sm">New Delhi, India</span>
-          </li>
-        </ul>
-      </div>
-  
-      <div>
-        <h5 class="font-semibold mb-6 text-white uppercase tracking-widest text-xs">Business Inquiry</h5>
-        <ul class="space-y-4 text-gray-500">
-          <li class="flex items-center gap-3">
-            <i class="fa-solid fa-paper-plane text-white/50"></i>
-            <a href="mailto:support@apex-elite.ai" class="hover:text-white transition text-sm">support@apex-elite.ai</a>
-          </li>
-          <li class="text-xs text-gray-600 italic">
-            *Inquiries monitored 24/7.
-          </li>
-        </ul>
-      </div>
+<!-- TESTIMONIALS -->
+<section class="py-20 px-6 text-center fade-in">
+  <h2 class="text-3xl font-bold mb-12">Testimonials</h2>
+  <div class="max-w-3xl mx-auto relative">
+    <div id="testimonialText" class="text-xl text-gray-300 italic transition-all duration-500">
+      "Increased our leads by 40% in just 2 months!"
+      <p class="mt-4 font-semibold text-indigo-400">— Mark R., CEO of FitPulse</p>
     </div>
-  
-    <div class="max-w-7xl mx-auto pt-8 border-t border-gray-900 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-600 text-xs">
-      <p>© 2026 Apex Alpha Performance. All rights reserved.</p>
-      <div class="flex gap-6">
-        <a href="#" class="hover:text-white">Privacy Policy</a>
-        <a href="#" class="hover:text-white">Terms of Execution</a>
-      </div>
-    </div>
-</footer>
+  </div>
+</section>
 
-<!-- WhatsApp Floating Icon -->
-<a href="https://wa.me" target="_blank" class="fixed bottom-8 right-8 bg-green-500 text-white p-4 rounded-full text-2xl shadow-[0_0_20px_rgba(34,197,94,0.4)] hover:scale-110 transition z-50">
-    <i class="fa-brands fa-whatsapp"></i>
-</a>
+<!-- CONTACT -->
+<section class="py-20 px-6 fade-in">
+  <h2 class="text-3xl font-bold text-center mb-12">Contact Me</h2>
+  <div class="max-w-2xl mx-auto glass p-10 rounded-2xl">
+    <form id="contactForm" class="space-y-6">
+      <input type="text" placeholder="Your Name" required class="w-full p-4 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:border-indigo-500">
+      <input type="email" placeholder="Your Email" required class="w-full p-4 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:border-indigo-500">
+      <textarea placeholder="Your Message" rows="4" required class="w-full p-4 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:border-indigo-500"></textarea>
+      <button class="w-full py-4 bg-indigo-600 rounded-lg font-semibold hover:bg-indigo-500 transition-all">Send Message</button>
+      <p id="successMessage" class="hidden text-green-400 text-center font-semibold">Message Sent Successfully!</p>
+    </form>
+  </div>
+</section>
+
+<!-- BACK TO TOP -->
+<button id="backToTop" class="fixed bottom-6 right-6 bg-indigo-600 p-4 rounded-full shadow-lg hover:bg-indigo-500 transition-all">
+↑
+</button>
 
 <script>
-    /* Stats Counter Animation */
-    const counters = document.querySelectorAll('.counter');
-    counters.forEach(counter => {
-        const update = () => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.innerText;
-            const increment = target / 80;
-            if(count < target){
-                counter.innerText = Math.ceil(count + increment);
-                setTimeout(update, 20);
-            } else { counter.innerText = target; }
-        }
-        update();
-    });
+// Fade In on Scroll
+const faders = document.querySelectorAll('.fade-in');
+const appearOptions = { threshold: 0.3 };
+const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('show');
+    observer.unobserve(entry.target);
+  });
+}, appearOptions);
+faders.forEach(fader => appearOnScroll.observe(fader));
 
-    /* Navbar Blur on Scroll */
-    window.addEventListener("scroll", function(){
-        const nav = document.getElementById("navbar");
-        if(window.scrollY > 50) {
-            nav.classList.add("bg-black/80","backdrop-blur-xl","border-b","border-white/5");
-        } else {
-            nav.classList.remove("bg-black/80","backdrop-blur-xl","border-b","border-white/5");
-        }
-    });
+// Counter Animation
+const counters = document.querySelectorAll('.counter');
+counters.forEach(counter => {
+  const updateCount = () => {
+    const target = +counter.getAttribute('data-target');
+    const count = +counter.innerText;
+    const increment = target / 100;
+    if (count < target) {
+      counter.innerText = Math.ceil(count + increment);
+      setTimeout(updateCount, 20);
+    } else {
+      counter.innerText = target;
+    }
+  };
+  updateCount();
+});
 
-    /* Pricing Toggle Logic */
-    const monthlyBtn = document.getElementById("monthlyBtn");
-    const quarterlyBtn = document.getElementById("quarterlyBtn");
-    const p1 = document.getElementById("price1");
-    const p2 = document.getElementById("price2");
+// Testimonials Slider
+const testimonials = [
+  `"Increased our leads by 40% in just 2 months!"
+  <p class="mt-4 font-semibold text-indigo-400">— Mark R., CEO of FitPulse</p>`,
+  `"Insane turnaround time. Delivered before deadline!"
+  <p class="mt-4 font-semibold text-indigo-400">— Sarah L., Founder of Bloom Media</p>`,
+  `"Best developer we've worked with. Exceptional quality."
+  <p class="mt-4 font-semibold text-indigo-400">— David K., CTO of Nexify</p>`
+];
+let index = 0;
+setInterval(() => {
+  index = (index + 1) % testimonials.length;
+  document.getElementById('testimonialText').innerHTML = testimonials[index];
+}, 4000);
 
-    quarterlyBtn.onclick = () => {
-        p1.innerText = "₹12,500/qtr";
-        p2.innerText = "₹40,000/qtr";
-        quarterlyBtn.classList.add("bg-white", "text-black");
-        quarterlyBtn.classList.remove("text-white", "hover:bg-white/5");
-        monthlyBtn.classList.add("text-white", "hover:bg-white/5");
-        monthlyBtn.classList.remove("bg-white", "text-black");
-    };
+// Contact Form
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  document.getElementById('successMessage').classList.remove('hidden');
+  this.reset();
+});
 
-    monthlyBtn.onclick = () => {
-        p1.innerText = "₹5,000/mo";
-        p2.innerText = "₹15,000/mo";
-        monthlyBtn.classList.add("bg-white", "text-black");
-        monthlyBtn.classList.remove("text-white", "hover:bg-white/5");
-        quarterlyBtn.classList.add("text-white", "hover:bg-white/5");
-        quarterlyBtn.classList.remove("bg-white", "text-black");
-    };
+// Magnetic Button
+const btn = document.getElementById('ctaBtn');
+btn.addEventListener('mousemove', (e) => {
+  const rect = btn.getBoundingClientRect();
+  const x = e.clientX - rect.left - rect.width / 2;
+  const y = e.clientY - rect.top - rect.height / 2;
+  btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+});
+btn.addEventListener('mouseleave', () => {
+  btn.style.transform = `translate(0,0)`;
+});
+
+// Back to Top
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 400) {
+    backToTop.style.display = 'block';
+  } else {
+    backToTop.style.display = 'none';
+  }
+});
+backToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 </script>
 
 </body>
