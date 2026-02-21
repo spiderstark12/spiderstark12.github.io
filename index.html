@@ -5,20 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AT.DIGITAL — Limitless Vision</title>
 
-<!-- Font -->
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-<!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
-
-<!-- AOS -->
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
-<!-- Lenis Smooth Scroll -->
-<script src="https://unpkg.com/@studio-freight/lenis@1.0.5/bundled/lenis.min.js"></script>
-
-<!-- FontAwesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -28,16 +18,16 @@ body{
   background:#020202;
   color:white;
   overflow-x:hidden;
-  transition:background 0.4s ease,color 0.4s ease;
+  transition:.4s ease;
 }
 
-/* Light mode */
+/* Light Mode */
 body.light{
   background:#f5f5f5;
   color:#111;
 }
 
-/* Radial Glow */
+/* Animated Mesh Glow */
 body::before{
   content:"";
   position:fixed;
@@ -52,13 +42,13 @@ body::before{
   to{transform:translate(200px,200px)}
 }
 
-/* Noise Overlay */
+/* Noise */
 body::after{
   content:"";
   position:fixed;
   inset:0;
   background-image:url("https://grainy-gradients.vercel.app/noise.svg");
-  opacity:0.04;
+  opacity:.04;
   pointer-events:none;
   z-index:-1;
 }
@@ -72,14 +62,14 @@ body::after{
 
 /* Hover Lift */
 .card-hover{
-  transition:all .4s ease;
+  transition:.4s ease;
 }
 .card-hover:hover{
   transform:translateY(-12px);
   box-shadow:0 25px 60px rgba(99,102,241,.35);
 }
 
-/* Cursor Glow */
+/* Cursor */
 .cursor{
   width:30px;height:30px;
   border-radius:50%;
@@ -88,31 +78,8 @@ body::after{
   pointer-events:none;
   mix-blend-mode:screen;
   transform:translate(-50%,-50%);
-  transition:transform .1s ease;
   z-index:9999;
 }
-
-/* Pricing Switch */
-.switch{
-  width:70px;height:36px;
-  background:#222;border-radius:999px;
-  position:relative;cursor:pointer;
-}
-.switch::after{
-  content:"";
-  position:absolute;width:30px;height:30px;
-  background:white;border-radius:50%;
-  top:3px;left:4px;transition:.3s;
-}
-.switch.active::after{left:36px}
-
-/* Modal */
-.modal{
-  position:fixed;inset:0;
-  background:rgba(0,0,0,.8);
-  display:none;align-items:center;justify-content:center;
-}
-.modal.active{display:flex}
 </style>
 </head>
 
@@ -124,7 +91,7 @@ body::after{
 <header class="fixed top-0 w-full z-50 glass">
 <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 <h1 class="font-bold">AT.DIGITAL</h1>
-<div class="flex items-center gap-6">
+<div class="flex gap-6 items-center">
 <button id="themeToggle"><i class="fa-solid fa-moon"></i></button>
 <a href="#contact" class="px-6 py-2 bg-white text-black rounded-full text-sm font-semibold">Contact Studio</a>
 </div>
@@ -133,75 +100,98 @@ body::after{
 
 <!-- HERO -->
 <section class="min-h-screen flex items-center justify-center text-center px-6 pt-32">
-<h1 data-aos="fade-up" class="text-[5rem] md:text-[10rem] font-extrabold bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">
+<h1 data-aos="fade-up" class="text-[4rem] md:text-[10rem] font-extrabold bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">
 LIMITLESS VISION.
 </h1>
 </section>
 
-<!-- SVG Accent -->
-<div class="w-full overflow-hidden">
-<svg viewBox="0 0 1440 200" class="w-full">
-<path fill="#6366f1" fill-opacity="0.15">
-<animate attributeName="d" dur="10s" repeatCount="indefinite"
-values="
-M0,100 C480,200 960,0 1440,100 L1440,200 L0,200 Z;
-M0,120 C480,20 960,180 1440,80 L1440,200 L0,200 Z;
-M0,100 C480,200 960,0 1440,100 L1440,200 L0,200 Z"/>
-</path>
-</svg>
+<!-- AUTHORITY STATS -->
+<section class="py-20 text-center">
+<div data-aos="fade-up" class="flex flex-wrap justify-center gap-12 text-lg font-semibold text-indigo-400">
+<div>50+ Projects Delivered</div>
+<div>95+ Google PageSpeed</div>
+<div>100% Client Satisfaction</div>
+<div>24H Execution Time</div>
 </div>
+</section>
 
 <!-- SERVICES -->
 <section class="py-32 px-6 max-w-7xl mx-auto">
-<h2 data-aos="fade-up" class="text-4xl font-bold text-center mb-16">Services</h2>
+<h2 data-aos="fade-up" class="text-4xl font-bold text-center mb-6">What We’ve Built So Far</h2>
+<p data-aos="fade-up" class="text-center text-gray-400 max-w-3xl mx-auto mb-16">
+50+ performance-driven digital projects delivered with measurable ROI and high-conversion strategy.
+</p>
+
 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-<div data-aos="zoom-in" class="card-hover glass rounded-2xl p-6 cursor-pointer" onclick="openModal('Web Development project delivering 95+ PageSpeed performance.')">
-<h3 class="text-xl font-semibold">Web Development</h3>
-<p class="text-gray-400 text-sm mt-2">High-performance builds.</p>
+<div data-aos="zoom-in" class="card-hover glass rounded-2xl p-8">
+<h3 class="text-xl font-semibold mb-3">Web Development</h3>
+<p class="text-gray-400 text-sm">
+Custom-coded, SEO-optimized, 95+ PageSpeed builds engineered for performance.
+</p>
 </div>
 
-<div data-aos="zoom-in" class="card-hover glass rounded-2xl p-6 cursor-pointer" onclick="openModal('Python automation reducing manual workload by 60%.')">
-<h3 class="text-xl font-semibold">Python Automation</h3>
-<p class="text-gray-400 text-sm mt-2">Smart systems.</p>
+<div data-aos="zoom-in" class="card-hover glass rounded-2xl p-8">
+<h3 class="text-xl font-semibold mb-3">Python Automation</h3>
+<p class="text-gray-400 text-sm">
+Workflow automation, backend systems & AI integrations reducing operational workload.
+</p>
 </div>
 
-<div data-aos="zoom-in" class="card-hover glass rounded-2xl p-6 cursor-pointer" onclick="openModal('Cinematic editing optimized for retention.')">
-<h3 class="text-xl font-semibold">Video Editing</h3>
-<p class="text-gray-400 text-sm mt-2">Scroll-stopping content.</p>
+<div data-aos="zoom-in" class="card-hover glass rounded-2xl p-8">
+<h3 class="text-xl font-semibold mb-3">Strategic Video Editing</h3>
+<p class="text-gray-400 text-sm">
+Retention-optimized cinematic edits built for YouTube growth & brand storytelling.
+</p>
 </div>
 
-<div data-aos="zoom-in" class="card-hover glass rounded-2xl p-6 cursor-pointer" onclick="openModal('Thumbnail strategies boosting CTR 30%+.')">
-<h3 class="text-xl font-semibold">Thumbnail Strategy</h3>
-<p class="text-gray-400 text-sm mt-2">Conversion visuals.</p>
+<div data-aos="zoom-in" class="card-hover glass rounded-2xl p-8">
+<h3 class="text-xl font-semibold mb-3">Thumbnail & CTR Optimization</h3>
+<p class="text-gray-400 text-sm">
+Data-backed visual strategies increasing CTR by 25–40%.
+</p>
 </div>
 
 </div>
 </section>
 
-<!-- PRICING CALCULATOR -->
-<section class="py-32 text-center">
-<h2 data-aos="fade-up" class="text-4xl font-bold mb-8">Retainer Calculator</h2>
+<!-- REVIEWS -->
+<section class="py-32 px-6 max-w-6xl mx-auto">
+<h2 data-aos="fade-up" class="text-4xl font-bold text-center mb-16">Trusted By Growing Brands</h2>
 
-<div class="flex justify-center items-center gap-4 mb-8">
-<span>Monthly</span>
-<div id="toggle" class="switch"></div>
-<span>Quarterly</span>
+<div class="grid md:grid-cols-3 gap-8">
+
+<div data-aos="zoom-in" class="glass p-8 rounded-2xl card-hover">
+<div class="text-yellow-400 mb-4">★★★★★</div>
+<p class="text-gray-300 text-sm">
+“Increased our inbound leads by 40% within 60 days. Execution speed was unreal.”
+</p>
+<h4 class="mt-6 font-semibold">Mark R., CEO — FitPulse</h4>
 </div>
 
-<div class="glass p-10 rounded-2xl max-w-xl mx-auto">
-<select id="serviceSelect" class="w-full p-3 bg-black/40 border border-white/10 rounded mb-4">
-<option value="35000">Web Dev</option>
-<option value="30000">Automation</option>
-<option value="25000">Video Editing</option>
-</select>
-<h3 id="price" class="text-3xl font-bold">₹35,000</h3>
+<div data-aos="zoom-in" class="glass p-8 rounded-2xl card-hover">
+<div class="text-yellow-400 mb-4">★★★★★</div>
+<p class="text-gray-300 text-sm">
+“95+ PageSpeed and flawless UI. Bounce rate dropped significantly.”
+</p>
+<h4 class="mt-6 font-semibold">Sarah L., Founder — Bloom Media</h4>
+</div>
+
+<div data-aos="zoom-in" class="glass p-8 rounded-2xl card-hover">
+<div class="text-yellow-400 mb-4">★★★★★</div>
+<p class="text-gray-300 text-sm">
+“A true performance partner from automation to creative execution.”
+</p>
+<h4 class="mt-6 font-semibold">David K., CTO — Nexify</h4>
+</div>
+
 </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="py-32 px-6 max-w-4xl mx-auto">
 <h2 data-aos="fade-up" class="text-4xl font-bold text-center mb-12">Start a Project</h2>
+
 <form data-aos="zoom-in" action="https://formspree.io/f/xqedyzqk" method="POST" class="glass p-10 rounded-2xl space-y-6">
 <input type="text" name="Organization" placeholder="Organization Name" required class="w-full p-4 rounded bg-black/40 border border-white/10">
 <input type="email" name="Email" placeholder="Business Email" required class="w-full p-4 rounded bg-black/40 border border-white/10">
@@ -210,23 +200,12 @@ M0,100 C480,200 960,0 1440,100 L1440,200 L0,200 Z"/>
 </form>
 </section>
 
-<!-- MODAL -->
-<div id="modal" class="modal">
-<div class="glass p-10 rounded-2xl max-w-lg text-center">
-<p id="modalText"></p>
-<button onclick="closeModal()" class="mt-6 px-6 py-2 bg-white text-black rounded">Close</button>
-</div>
-</div>
-
-<footer class="text-center py-10 text-gray-500">© 2026 AT.DIGITAL</footer>
+<footer class="text-center py-10 text-gray-500">
+© 2026 AT.DIGITAL — All Rights Reserved
+</footer>
 
 <script>
 AOS.init({duration:1200,once:true});
-
-/* Lenis */
-const lenis=new Lenis();
-function raf(time){lenis.raf(time);requestAnimationFrame(raf);}
-requestAnimationFrame(raf);
 
 /* Cursor */
 const cursor=document.getElementById("cursor");
@@ -235,38 +214,10 @@ cursor.style.left=e.clientX+"px";
 cursor.style.top=e.clientY+"px";
 });
 
-/* Theme Toggle */
+/* Theme */
 document.getElementById("themeToggle").onclick=()=>{
 document.body.classList.toggle("light");
 };
-
-/* Pricing */
-let quarterly=false;
-const toggle=document.getElementById("toggle");
-const price=document.getElementById("price");
-const select=document.getElementById("serviceSelect");
-
-function updatePrice(){
-let base=parseInt(select.value);
-let final=quarterly?base*3*0.9:base;
-price.textContent="₹"+final.toLocaleString();
-}
-select.onchange=updatePrice;
-toggle.onclick=()=>{
-quarterly=!quarterly;
-toggle.classList.toggle("active");
-updatePrice();
-};
-updatePrice();
-
-/* Modal */
-function openModal(text){
-document.getElementById("modalText").innerText=text;
-document.getElementById("modal").classList.add("active");
-}
-function closeModal(){
-document.getElementById("modal").classList.remove("active");
-}
 </script>
 
 </body>
