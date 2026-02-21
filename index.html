@@ -1,183 +1,273 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AT.DIGITAL | Senior Creative Technologist</title>
-    
-    <!-- External Scripts & Styles -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AT.DIGITAL — Limitless Vision</title>
 
-    <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #020202; color: #fff; overflow-x: hidden; }
-        
-        /* Premium Glassmorphism */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.01);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        .glass-card:hover {
-            background: rgba(255, 255, 255, 0.04);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-12px);
-            box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.5);
-        }
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-        .gradient-text {
-            background: linear-gradient(90deg, #fff, #a1a1aa, #52525b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
 
-        .bento-img {
-            width: 100%; height: 100%; object-fit: cover;
-            filter: grayscale(100%) brightness(0.3);
-            transition: 0.6s ease;
-        }
-        .glass-card:hover .bento-img {
-            filter: grayscale(0%) brightness(0.5);
-            transform: scale(1.05);
-        }
-    </style>
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<!-- Lenis Smooth Scroll -->
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.5/bundled/lenis.min.js"></script>
+
+<!-- FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  letter-spacing:-0.05em;
+  background:#020202;
+  color:white;
+  overflow-x:hidden;
+  transition:background 0.4s ease,color 0.4s ease;
+}
+
+/* Light mode */
+body.light{
+  background:#f5f5f5;
+  color:#111;
+}
+
+/* Radial Glow */
+body::before{
+  content:"";
+  position:fixed;
+  width:900px;height:900px;
+  background:radial-gradient(circle,rgba(99,102,241,.25)0%,transparent 70%);
+  top:-200px;left:-200px;
+  animation:float 12s ease-in-out infinite alternate;
+  z-index:-2;
+}
+@keyframes float{
+  from{transform:translate(0,0)}
+  to{transform:translate(200px,200px)}
+}
+
+/* Noise Overlay */
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image:url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity:0.04;
+  pointer-events:none;
+  z-index:-1;
+}
+
+/* Glass */
+.glass{
+  backdrop-filter:blur(20px);
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+}
+
+/* Hover Lift */
+.card-hover{
+  transition:all .4s ease;
+}
+.card-hover:hover{
+  transform:translateY(-12px);
+  box-shadow:0 25px 60px rgba(99,102,241,.35);
+}
+
+/* Cursor Glow */
+.cursor{
+  width:30px;height:30px;
+  border-radius:50%;
+  background:rgba(99,102,241,.6);
+  position:fixed;
+  pointer-events:none;
+  mix-blend-mode:screen;
+  transform:translate(-50%,-50%);
+  transition:transform .1s ease;
+  z-index:9999;
+}
+
+/* Pricing Switch */
+.switch{
+  width:70px;height:36px;
+  background:#222;border-radius:999px;
+  position:relative;cursor:pointer;
+}
+.switch::after{
+  content:"";
+  position:absolute;width:30px;height:30px;
+  background:white;border-radius:50%;
+  top:3px;left:4px;transition:.3s;
+}
+.switch.active::after{left:36px}
+
+/* Modal */
+.modal{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,.8);
+  display:none;align-items:center;justify-content:center;
+}
+.modal.active{display:flex}
+</style>
 </head>
+
 <body>
 
-    <!-- NAVIGATION -->
-    <header class="fixed top-0 w-full z-50 p-6">
-        <nav class="max-w-7xl mx-auto glass-card border-none rounded-full px-8 py-4 flex justify-between items-center">
-            <div class="text-2xl font-black italic tracking-tighter">AT.DIGITAL</div>
-            <div class="hidden lg:flex gap-10 text-[10px] font-bold uppercase tracking-widest text-gray-500">
-                <a href="#services" class="hover:text-white transition">Expertise</a>
-                <a href="#work" class="hover:text-white transition">The Work</a>
-                <a href="#contact" class="hover:text-white transition">Contact</a>
-            </div>
-            <a href="mailto:spiderstark12@gmail.com" class="bg-white text-black px-6 py-2 rounded-full font-bold text-[10px] tracking-widest hover:scale-105 transition uppercase">Contact Studio</a>
-        </nav>
-    </header>
+<div class="cursor" id="cursor"></div>
 
-    <!-- HERO SECTION -->
-    <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative">
-        <div data-aos="fade-up" data-aos-duration="1200">
-            <h1 class="text-6xl md:text-[10rem] font-black leading-[0.85] tracking-tighter mb-10 gradient-text">
-                LIMITLESS <br> VISION.
-            </h1>
-            <p class="text-gray-500 max-w-2xl text-lg md:text-xl mb-12 mx-auto font-medium leading-relaxed">
-                Premium Web Dev, Python Automation, and Content Strategy for elite brands.
-            </p>
-            <div class="flex flex-col md:flex-row gap-6 justify-center">
-                <a href="#work" class="bg-white text-black px-12 py-5 rounded-full font-black text-lg hover:shadow-[0_0_50px_rgba(255,255,255,0.4)] transition uppercase">Portfolio</a>
-                <a href="#contact" class="glass-card px-12 py-5 rounded-full font-black text-lg uppercase">Hire Studio</a>
-            </div>
-        </div>
-    </section>
+<!-- HEADER -->
+<header class="fixed top-0 w-full z-50 glass">
+<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+<h1 class="font-bold">AT.DIGITAL</h1>
+<div class="flex items-center gap-6">
+<button id="themeToggle"><i class="fa-solid fa-moon"></i></button>
+<a href="#contact" class="px-6 py-2 bg-white text-black rounded-full text-sm font-semibold">Contact Studio</a>
+</div>
+</div>
+</header>
 
-    <!-- SERVICES BENTO GRID -->
-    <section id="services" class="py-32 px-6 max-w-7xl mx-auto">
-        <div class="mb-20" data-aos="fade-right">
-            <h2 class="text-5xl font-black tracking-tighter mb-4 uppercase">The Studio Stack</h2>
-            <p class="text-gray-500 text-xl font-medium">Quantifiable results through high-performance engineering.</p>
-        </div>
+<!-- HERO -->
+<section class="min-h-screen flex items-center justify-center text-center px-6 pt-32">
+<h1 data-aos="fade-up" class="text-[5rem] md:text-[10rem] font-extrabold bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">
+LIMITLESS VISION.
+</h1>
+</section>
 
-        <div class="grid md:grid-cols-4 gap-6 auto-rows-[350px]">
-            <div class="glass-card md:col-span-2 relative overflow-hidden rounded-[40px]" data-aos="zoom-in">
-                <img src="https://images.unsplash.com" class="bento-img absolute inset-0">
-                <div class="relative z-10 p-10 h-full flex flex-col justify-end">
-                    <h3 class="text-3xl font-black mb-2 uppercase">Web Development</h3>
-                    <p class="text-gray-400 text-sm max-w-xs">Conversion-optimized landing pages and SaaS architecture.</p>
-                </div>
-            </div>
-            <div class="glass-card relative overflow-hidden rounded-[40px]" data-aos="zoom-in" data-aos-delay="100">
-                <img src="https://images.unsplash.com" class="bento-img absolute inset-0">
-                <div class="relative z-10 p-10 h-full flex flex-col justify-end">
-                    <h3 class="text-xl font-black mb-2 uppercase">Python Automation</h3>
-                    <p class="text-gray-400 text-xs">Custom scrapers and B2B lead generation engines.</p>
-                </div>
-            </div>
-            <div class="glass-card relative overflow-hidden rounded-[40px]" data-aos="zoom-in" data-aos-delay="200">
-                <img src="https://images.unsplash.com" class="bento-img absolute inset-0">
-                <div class="relative z-10 p-10 h-full flex flex-col justify-end">
-                    <h3 class="text-xl font-black mb-2 uppercase">Visual Strategy</h3>
-                    <p class="text-gray-400 text-xs">High-CTR thumbnails and viral video retention edits.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- SVG Accent -->
+<div class="w-full overflow-hidden">
+<svg viewBox="0 0 1440 200" class="w-full">
+<path fill="#6366f1" fill-opacity="0.15">
+<animate attributeName="d" dur="10s" repeatCount="indefinite"
+values="
+M0,100 C480,200 960,0 1440,100 L1440,200 L0,200 Z;
+M0,120 C480,20 960,180 1440,80 L1440,200 L0,200 Z;
+M0,100 C480,200 960,0 1440,100 L1440,200 L0,200 Z"/>
+</path>
+</svg>
+</div>
 
-    <!-- WHY CHOOSE ME SECTION -->
-    <section class="py-32 bg-white text-black rounded-[50px] relative z-10">
-        <div class="max-w-7xl mx-auto px-10">
-            <h2 class="text-6xl md:text-8xl font-black tracking-tighter mb-20 uppercase" data-aos="fade-up">Why AT.Digital?</h2>
-            <div class="grid md:grid-cols-3 gap-16">
-                <div data-aos="fade-up">
-                    <p class="text-4xl font-black italic mb-4">95+</p>
-                    <h4 class="font-bold uppercase tracking-widest text-xs mb-4">PageSpeed Score</h4>
-                    <p class="text-gray-500 text-sm">We build lightning-fast systems that retain users and increase ROI.</p>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="100">
-                    <p class="text-4xl font-black italic mb-4">24H</p>
-                    <h4 class="font-bold uppercase tracking-widest text-xs mb-4">Execution Speed</h4>
-                    <p class="text-gray-500 text-sm">Rapid prototyping and high-fidelity delivery at professional speed.</p>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="200">
-                    <p class="text-4xl font-black italic mb-4">50+</p>
-                    <h4 class="font-bold uppercase tracking-widest text-xs mb-4">Projects Shipped</h4>
-                    <p class="text-gray-500 text-sm">A proven track record of delivering premium digital products.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- SERVICES -->
+<section class="py-32 px-6 max-w-7xl mx-auto">
+<h2 data-aos="fade-up" class="text-4xl font-bold text-center mb-16">Services</h2>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-    <!-- TESTIMONIALS SECTION -->
-    <section id="reviews" class="py-32 px-6 max-w-7xl mx-auto text-center">
-        <h3 class="text-5xl font-black tracking-tighter mb-16 uppercase" data-aos="fade-up">Client Verdicts</h3>
-        <div class="grid md:grid-cols-2 gap-10">
-            <div class="glass-card p-12 text-left" data-aos="fade-right">
-                <p class="text-xl italic text-gray-400 mb-6">"The Python automation Arnav built for our team saved us 30 hours of work per week. Truly elite performance."</p>
-                <p class="font-bold text-sm text-white">Mark R., CEO of FitPulse</p>
-            </div>
-            <div class="glass-card p-12 text-left" data-aos="fade-left">
-                <p class="text-xl italic text-gray-400 mb-6">"Our CTR shot up by 15% after using the thumbnail strategy designed by this studio. Exceptional vision."</p>
-                <p class="font-bold text-sm text-white">Sarah J., Founder of Bloom Media</p>
-            </div>
-        </div>
-    </section>
+<div data-aos="zoom-in" class="card-hover glass rounded-2xl p-6 cursor-pointer" onclick="openModal('Web Development project delivering 95+ PageSpeed performance.')">
+<h3 class="text-xl font-semibold">Web Development</h3>
+<p class="text-gray-400 text-sm mt-2">High-performance builds.</p>
+</div>
 
-    <!-- CONTACT FORM (FUNCTIONAL) -->
-    <section id="contact" class="py-32 px-6 max-w-4xl mx-auto">
-        <div class="text-center mb-16" data-aos="zoom-in">
-            <h2 class="text-6xl font-black tracking-tighter mb-4 italic uppercase">Launch Project.</h2>
-            <p class="text-gray-500">Exclusively accepting high-ticket partners for Q1 2026.</p>
-        </div>
+<div data-aos="zoom-in" class="card-hover glass rounded-2xl p-6 cursor-pointer" onclick="openModal('Python automation reducing manual workload by 60%.')">
+<h3 class="text-xl font-semibold">Python Automation</h3>
+<p class="text-gray-400 text-sm mt-2">Smart systems.</p>
+</div>
 
-        <!-- Replace YOUR_ID_HERE with your Formspree ID -->
-        <form
-  action="https://formspree.io/f/xqedyzqk"
-  method="POST"
-        >
-            <div class="grid md:grid-cols-2 gap-6">
-                <input type="text" name="name" placeholder="ORGANIZATION / NAME" required class="w-full glass-card p-6 rounded-3xl outline-none focus:border-white/40 transition font-bold text-xs tracking-widest">
-                <input type="email" name="email" placeholder="BUSINESS EMAIL" required class="w-full glass-card p-6 rounded-3xl outline-none focus:border-white/40 transition font-bold text-xs tracking-widest">
-            </div>
-            <textarea name="message" rows="5" placeholder="PROJECT DETAILS" required class="w-full glass-card p-6 rounded-3xl outline-none focus:border-white/40 transition font-bold text-xs tracking-widest"></textarea>
-            <button type="submit" class="w-full bg-white text-black py-6 rounded-full font-black text-xl hover:shadow-[0_0_50px_rgba(255,255,255,0.4)] transition">SUBMIT PROPOSAL</button>
-        </form>
-    </section>
+<div data-aos="zoom-in" class="card-hover glass rounded-2xl p-6 cursor-pointer" onclick="openModal('Cinematic editing optimized for retention.')">
+<h3 class="text-xl font-semibold">Video Editing</h3>
+<p class="text-gray-400 text-sm mt-2">Scroll-stopping content.</p>
+</div>
 
-    <!-- FOOTER -->
-    <footer class="py-20 text-center border-t border-white/5 opacity-50">
-        <p class="text-[8px] tracking-[1em] uppercase mb-4">© 2026 AT.DIGITAL STUDIO. ALL RIGHTS RESERVED.</p>
-        <p class="text-[10px] tracking-widest">Direct: <a href="mailto:spiderstark12@gmail.com" class="hover:text-white">spiderstark12@gmail.com</a></p>
-    </footer>
+<div data-aos="zoom-in" class="card-hover glass rounded-2xl p-6 cursor-pointer" onclick="openModal('Thumbnail strategies boosting CTR 30%+.')">
+<h3 class="text-xl font-semibold">Thumbnail Strategy</h3>
+<p class="text-gray-400 text-sm mt-2">Conversion visuals.</p>
+</div>
 
-    <!-- AOS Script Initialization -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ once: true, duration: 800, offset: 120 });
-    </script>
+</div>
+</section>
+
+<!-- PRICING CALCULATOR -->
+<section class="py-32 text-center">
+<h2 data-aos="fade-up" class="text-4xl font-bold mb-8">Retainer Calculator</h2>
+
+<div class="flex justify-center items-center gap-4 mb-8">
+<span>Monthly</span>
+<div id="toggle" class="switch"></div>
+<span>Quarterly</span>
+</div>
+
+<div class="glass p-10 rounded-2xl max-w-xl mx-auto">
+<select id="serviceSelect" class="w-full p-3 bg-black/40 border border-white/10 rounded mb-4">
+<option value="35000">Web Dev</option>
+<option value="30000">Automation</option>
+<option value="25000">Video Editing</option>
+</select>
+<h3 id="price" class="text-3xl font-bold">₹35,000</h3>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-32 px-6 max-w-4xl mx-auto">
+<h2 data-aos="fade-up" class="text-4xl font-bold text-center mb-12">Start a Project</h2>
+<form data-aos="zoom-in" action="https://formspree.io/f/xqedyzqk" method="POST" class="glass p-10 rounded-2xl space-y-6">
+<input type="text" name="Organization" placeholder="Organization Name" required class="w-full p-4 rounded bg-black/40 border border-white/10">
+<input type="email" name="Email" placeholder="Business Email" required class="w-full p-4 rounded bg-black/40 border border-white/10">
+<textarea name="Details" placeholder="Project Details" rows="5" required class="w-full p-4 rounded bg-black/40 border border-white/10"></textarea>
+<button class="w-full py-4 bg-white text-black rounded font-semibold">Send Inquiry</button>
+</form>
+</section>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+<div class="glass p-10 rounded-2xl max-w-lg text-center">
+<p id="modalText"></p>
+<button onclick="closeModal()" class="mt-6 px-6 py-2 bg-white text-black rounded">Close</button>
+</div>
+</div>
+
+<footer class="text-center py-10 text-gray-500">© 2026 AT.DIGITAL</footer>
+
+<script>
+AOS.init({duration:1200,once:true});
+
+/* Lenis */
+const lenis=new Lenis();
+function raf(time){lenis.raf(time);requestAnimationFrame(raf);}
+requestAnimationFrame(raf);
+
+/* Cursor */
+const cursor=document.getElementById("cursor");
+document.addEventListener("mousemove",e=>{
+cursor.style.left=e.clientX+"px";
+cursor.style.top=e.clientY+"px";
+});
+
+/* Theme Toggle */
+document.getElementById("themeToggle").onclick=()=>{
+document.body.classList.toggle("light");
+};
+
+/* Pricing */
+let quarterly=false;
+const toggle=document.getElementById("toggle");
+const price=document.getElementById("price");
+const select=document.getElementById("serviceSelect");
+
+function updatePrice(){
+let base=parseInt(select.value);
+let final=quarterly?base*3*0.9:base;
+price.textContent="₹"+final.toLocaleString();
+}
+select.onchange=updatePrice;
+toggle.onclick=()=>{
+quarterly=!quarterly;
+toggle.classList.toggle("active");
+updatePrice();
+};
+updatePrice();
+
+/* Modal */
+function openModal(text){
+document.getElementById("modalText").innerText=text;
+document.getElementById("modal").classList.add("active");
+}
+function closeModal(){
+document.getElementById("modal").classList.remove("active");
+}
+</script>
+
 </body>
 </html>
